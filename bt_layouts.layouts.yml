@@ -1,0 +1,67 @@
+# One Column
+bt_one_column:
+  label: 'BT One column'
+  category: 'Btester Layouts'
+  template: layouts/bt-one-column
+  class: Drupal\bt_layouts\Plugin\Layout\LayoutColumn
+  default_region: oneColumn__main
+  icon_map:
+    - [oneColumn__main]
+  library: bt_layouts/bt-one-column
+  regions:
+    oneColumn__main:
+      label: Main content
+
+# Two Columns 
+bt_two_columns:
+  label: 'BT Two columns'
+  category: 'Btester Layouts'
+  template: layouts/bt-two-columns
+  class: Drupal\bt_layouts\Plugin\Layout\LayoutColumns
+  default_region: twoColumns__left
+  icon_map:
+    - [twoColumns__left, twoColumns__right]
+  library: bt_layouts/bt-two-columns
+  regions:
+    twoColumns__left:
+      label: Left column
+    twoColumns__right:
+      label: Right column
+
+# Three Columns
+bt_three_columns:
+  label: 'BT Three columns'
+  category: 'Btester Layouts'
+  template: layouts/bt-three-columns
+  class: Drupal\bt_layouts\Plugin\Layout\LayoutColumns
+  default_region: threeColumns__middle
+  icon_map:
+    - [threeColumns__left, threeColumns__middle, threeColumns__right]
+  library: bt_layouts/bt-three-columns
+  regions:
+    threeColumns__left:
+      label: Left column
+    threeColumns__middle:
+      label: Middle column
+    threeColumns__right:
+      label: Right column
+
+# Four Columns 
+bt_four_columns:
+  label: 'BT Four columns'
+  category: 'Btester Layouts'
+  template: layouts/bt-four-columns
+  class: Drupal\bt_layouts\Plugin\Layout\LayoutColumns
+  default_region: fourColumns__middleLeft
+  icon_map:
+    - [fourColumns__left, fourColumns__middleLeft, fourColumns__middleRight, fourColumns__right]
+  library: bt_layouts/bt-four-columns
+  regions:
+    fourColumns__left:
+      label: Left column
+    fourColumns__middleLeft:
+      label: Middle left column
+    fourColumns__middleRight:
+      label: Middle right column
+    fourColumns__right:
+      label: Right column

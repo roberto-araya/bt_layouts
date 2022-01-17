@@ -1,0 +1,24 @@
+# Layouts
+bt-one-column:
+  version: 1.x
+  css:
+    layout:
+      css/oneColumn.css: {}
+
+bt-two-columns:
+  version: 1.x
+  css:
+    layout:
+      css/twoColumns.css: {}
+
+bt-three-columns:
+  version: 1.x
+  css:
+    layout:
+      css/threeColumns.css: {}
+
+bt-four-columns:
+  version: 1.x
+  css:
+    layout:
+      css/fourColumns.css: {}

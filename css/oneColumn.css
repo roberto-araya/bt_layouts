@@ -1,0 +1,14 @@
+.oneColumn--box {
+  display: grid;
+  grid-template-columns: 1fr minmax(320px, 60%) 1fr;
+}
+
+.oneColumn--wide {
+  display: grid;
+  grid-template-columns: 1fr minmax(320px, 80%) 1fr;
+}
+
+.oneColumn__main-region {
+  grid-column: 2;
+  display: grid;
+}

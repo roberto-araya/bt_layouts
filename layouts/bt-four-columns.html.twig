@@ -1,0 +1,36 @@
+{%
+  set classes = [
+    'fourColumns',
+    settings.container_type ? 'fourColumns--' ~ settings.container_type : '',
+    settings.background_color ? settings.background_color : '',
+    settings.padding_top ? settings.padding_top : '',
+    settings.padding_bottom ? settings.padding_bottom : '',
+    settings.gap ? settings.gap : '',
+  ]
+%}
+
+{% if content %}
+  <section {{ attributes.addClass(classes) }}>
+    <h2 class='visually-hidden'>{{ settings.label }}</h2>
+    {% if content.fourColumns__left %}
+      <div {{ region_attributes.fourColumns__left.addClass('fourColumns__left-region') }}>
+        {{ content.fourColumns__left }}
+      </div>
+    {% endif %}
+    {% if content.fourColumns__middleLeft %}
+      <div {{ region_attributes.fourColumns__middleLeft.addClass('fourColumns__middleLeft-region') }}>
+        {{ content.fourColumns__middleLeft }}
+      </div>
+    {% endif %}
+    {% if content.fourColumns__middleRight %}
+      <div {{ region_attributes.fourColumns__middleRight.addClass('fourColumns__middleRight-region') }}>
+        {{ content.fourColumns__middleRight }}
+      </div>
+    {% endif %}
+    {% if content.fourColumns__right %}
+      <div {{ region_attributes.fourColumns__right.addClass('fourColumns__right-region') }}>
+        {{ content.fourColumns__right }}
+      </div>
+    {% endif %}  
+  </section>
+{% endif %}

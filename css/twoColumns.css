@@ -1,0 +1,47 @@
+/* Container Types*/
+.twoColumns--box,
+.twoColumns--wide,
+.twoColumns--full {
+  display: grid;
+  grid-template-areas: "left left left left left"
+                        "right right right right right";
+  grid-auto-columns: 1fr;
+}
+
+.twoColumns--box {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.twoColumns--wide {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+/* Columns */
+.twoColumns__left-region {
+  grid-area: left;
+  display: grid;
+}
+
+.twoColumns__right-region {
+  grid-area: right;
+  display: grid;
+}
+
+@media screen and (min-width: 640px) {
+  .twoColumns--box,
+  .twoColumns--wide,
+  .twoColumns--full {
+    grid-template-areas: "left left left left left"
+                          "right right right right right";
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .twoColumns--box,
+  .twoColumns--wide,
+  .twoColumns--full {
+    grid-template-areas: "left left left left left right right right right right";
+  }
+}

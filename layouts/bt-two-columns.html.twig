@@ -1,0 +1,26 @@
+{%
+  set classes = [
+    'twoColumns',
+    settings.container_type ? 'twoColumns--' ~ settings.container_type : '',
+    settings.background_color ? settings.background_color : '',
+    settings.padding_top ? settings.padding_top : '',
+    settings.padding_bottom ? settings.padding_bottom : '',
+    settings.gap ? settings.gap : '',
+  ]
+%}
+
+{% if content %}
+  <section {{ attributes.addClass(classes) }}>
+    <h2 class='visually-hidden'>{{ settings.label }}</h2>
+    {% if content.twoColumns__left %}
+      <div {{ region_attributes.twoColumns__left.addClass('twoColumns__left-region') }}>
+        {{ content.twoColumns__left }}
+      </div>
+    {% endif %}
+    {% if content.twoColumns__right %}
+      <div {{ region_attributes.twoColumns__right.addClass('twoColumns__right-region') }}>
+        {{ content.twoColumns__right }}
+      </div>
+    {% endif %}
+  </section>
+{% endif %}

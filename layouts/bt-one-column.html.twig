@@ -1,0 +1,20 @@
+{%
+  set classes = [
+    'oneColumns',
+    settings.container_type ? 'oneColumns--' ~ settings.container_type : '',
+    settings.background_color ? settings.background_color : '',
+    settings.padding_top ? settings.padding_top : '',
+    settings.padding_bottom ? settings.padding_bottom : '',
+  ]
+%}
+
+{% if content %}
+  <section {{ attributes.addClass(classes) }}>
+    <h2 class='visually-hidden'>{{ settings.label }}</h2>
+    {% if content.oneColumn__main %}
+      <div {{ region_attributes.oneColumn__main.addClass('oneColumn__main-region') }}>
+        {{ content.oneColumn__main }}
+      </div>
+    {% endif %}
+  </section>
+{% endif %}

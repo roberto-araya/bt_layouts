@@ -1,0 +1,7 @@
+name: 'Btester Layouts'
+description: 'Sets of common layouts.'
+type: module
+core_version_requirement: ^8 || ^9
+package: 'Btester'
+dependencies:
+  - drupal:layout_builder

@@ -1,0 +1,31 @@
+{%
+  set classes = [
+    'threeColumns',
+    settings.container_type ? 'threeColumns--' ~ settings.container_type : '',
+    settings.background_color ? settings.background_color : '',
+    settings.padding_top ? settings.padding_top : '',
+    settings.padding_bottom ? settings.padding_bottom : '',
+    settings.gap ? settings.gap : '',
+  ]
+%}
+
+{% if content %}
+  <section {{ attributes.addClass(classes) }}>
+    <h2 class='visually-hidden'>{{ settings.label }}</h2>
+    {% if content.threeColumns__left %}
+      <div {{ region_attributes.threeColumns__left.addClass('threeColumns__left-region') }}>
+        {{ content.threeColumns__left }}
+      </div>
+    {% endif %}
+    {% if content.threeColumns__middle %}
+      <div {{ region_attributes.threeColumns__middle.addClass('threeColumns__middle-region') }}>
+        {{ content.threeColumns__middle }}
+      </div>
+    {% endif %}    
+    {% if content.threeColumns__right %}
+      <div {{ region_attributes.threeColumns__right.addClass('threeColumns__right-region') }}>
+        {{ content.threeColumns__right }}
+      </div>
+    {% endif %}
+  </section>
+{% endif %}
