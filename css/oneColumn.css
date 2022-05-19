@@ -1,3 +1,9 @@
+.oneColumn {
+  --defaultBgColor: transparent;
+  background-color: var(--backgroundColor, var(--defaultBgColor));
+}
+
+
 .oneColumn--box {
   display: grid;
   grid-template-columns: 1fr minmax(320px, 60%) 1fr;
@@ -8,7 +14,18 @@
   grid-template-columns: 1fr minmax(320px, 80%) 1fr;
 }
 
-.oneColumn__main-region {
+.oneColumn--full {
+  display: grid;
+  grid-template-columns: 100%;
+}
+
+.oneColumn--box__main-region,
+.oneColumn--wide__main-region {
   grid-column: 2;
+  display: grid;
+}
+
+.oneColumn--full__main-region {
+  grid-column: 1;
   display: grid;
 }

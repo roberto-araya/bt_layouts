@@ -64,6 +64,19 @@ class LayoutColumn extends LayoutDefault {
       '#default_value' => $this->configuration['background_color'],
     ];
 
+    $form['background_custom_color'] = [
+      '#type' => 'color',
+      '#title' => t('Custom color'),
+      '#description' => t("Select a custom color as background."),
+      '#default_value' => $this->configuration['background_custom_color'],
+      '#weight' => 30,
+      '#states' => [
+        'visible' => [
+          ':input[name="layout_settings[background_color]"]' => ['value' => 'customColor'],
+        ],
+      ],
+    ];
+
     $form['padding_top'] = [
       '#type' => 'select',
       '#title' => $this->t('Padding Top'),
@@ -116,6 +129,7 @@ class LayoutColumn extends LayoutDefault {
     $this->configuration['label'] = $values['label'];
     $this->configuration['container_type'] = $values['container_type'];
     $this->configuration['background_color'] = $values['background_color'];
+    $this->configuration['background_custom_color'] = $values['background_custom_color'];
     $this->configuration['padding_top'] = $values['padding_top'];
     $this->configuration['padding_bottom'] = $values['padding_bottom'];
     $this->configuration['class'] = $values['extra']['class'];
@@ -161,17 +175,68 @@ class LayoutColumn extends LayoutDefault {
    */
   protected function getBackgroundColorOptions(): array {
     return [
-      DefaultConfigLayout::GRID_BACKGROUND_COLOR_NONE => $this->t('None'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_DEFAULT => $this->t('Default'),
       DefaultConfigLayout::GRID_BACKGROUND_COLOR_PRIMARY => $this->t('Primary'),
-      DefaultConfigLayout::GRID_BACKGROUND_COLOR_PRIMARY_DARK => $this->t('Primary Dark'),
-      DefaultConfigLayout::GRID_BACKGROUND_COLOR_PRIMARY_LIGHT => $this->t('Primary Light'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_PRIMARY_050 => $this->t('Primary 050'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_PRIMARY_100 => $this->t('Primary 100'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_PRIMARY_200 => $this->t('Primary 200'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_PRIMARY_300 => $this->t('Primary 300'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_PRIMARY_400 => $this->t('Primary 400'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_PRIMARY_500 => $this->t('Primary 500'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_PRIMARY_600 => $this->t('Primary 600'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_PRIMARY_700 => $this->t('Primary 700'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_PRIMARY_800 => $this->t('Primary 800'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_PRIMARY_900 => $this->t('Primary 900'),
       DefaultConfigLayout::GRID_BACKGROUND_COLOR_SECONDARY => $this->t('Secondary'),
-      DefaultConfigLayout::GRID_BACKGROUND_COLOR_SECONDARY_DARK => $this->t('Secondary Dark'),
-      DefaultConfigLayout::GRID_BACKGROUND_COLOR_SECONDARY_LIGHT => $this->t('Secondary Light'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_SECONDARY_050 => $this->t('Secondary 050'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_SECONDARY_100 => $this->t('Secondary 100'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_SECONDARY_200 => $this->t('Secondary 200'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_SECONDARY_300 => $this->t('Secondary 300'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_SECONDARY_400 => $this->t('Secondary 400'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_SECONDARY_500 => $this->t('Secondary 500'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_SECONDARY_600 => $this->t('Secondary 600'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_SECONDARY_700 => $this->t('Secondary 700'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_SECONDARY_800 => $this->t('Secondary 800'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_SECONDARY_900 => $this->t('Secondary 900'),
       DefaultConfigLayout::GRID_BACKGROUND_COLOR_ACCENT => $this->t('Accent'),
-      DefaultConfigLayout::GRID_BACKGROUND_COLOR_ACCENT_DARK => $this->t('Accent Dark'),
-      DefaultConfigLayout::GRID_BACKGROUND_COLOR_ACCENT_LIGHT => $this->t('Accent Light'),
-      DefaultConfigLayout::GRID_BACKGROUND_COLOR_BACKGROUND => $this->t('Background'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_ACCENT_050 => $this->t('Accent 050'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_ACCENT_100 => $this->t('Accent 100'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_ACCENT_200 => $this->t('Accent 200'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_ACCENT_300 => $this->t('Accent 300'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_ACCENT_400 => $this->t('Accent 400'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_ACCENT_500 => $this->t('Accent 500'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_ACCENT_600 => $this->t('Accent 600'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_ACCENT_700 => $this->t('Accent 700'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_ACCENT_800 => $this->t('Accent 800'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_ACCENT_900 => $this->t('Accent 900'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_SUCCESS => $this->t('Success'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_INFO => $this->t('Info'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_WARNING => $this->t('Warning'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_DANGER => $this->t('Danger'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_LIGHT => $this->t('Light'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_DARK => $this->t('Dark'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_BLUE => $this->t('Blue'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_INDIGO => $this->t('Indigo'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_PURPLE => $this->t('Purple'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_PINK => $this->t('Pink'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_RED => $this->t('Red'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_ORANGE => $this->t('Orange'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_YELLOW => $this->t('Yellow'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_GREEN => $this->t('Green'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_TEAL => $this->t('Teal'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_CYAN => $this->t('Cyan'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_WHITE => $this->t('White'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_GRAY_DARK => $this->t('Gray Dark'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_GRAY_100 => $this->t('Gray 100'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_GRAY_200 => $this->t('Gray 200'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_GRAY_300 => $this->t('Gray 300'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_GRAY_400 => $this->t('Gray 400'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_GRAY_500 => $this->t('Gray 500'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_GRAY_600 => $this->t('Gray 600'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_GRAY_700 => $this->t('Gray 700'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_GRAY_800 => $this->t('Gray 800'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_GRAY_900 => $this->t('Gray 900'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_CUSTOM => $this->t('Custom'),
     ];
   }
 
