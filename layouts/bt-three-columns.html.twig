@@ -2,15 +2,22 @@
   set classes = [
     'threeColumns',
     settings.container_type ? 'threeColumns--' ~ settings.container_type : '',
-    settings.background_color ? settings.background_color : '',
+    settings.columns_size ? 'threeColumns--' ~ settings.columns_size : '',
     settings.padding_top ? settings.padding_top : '',
     settings.padding_bottom ? settings.padding_bottom : '',
     settings.gap ? settings.gap : '',
   ]
 %}
 
+{%
+  set style_vars = [
+    settings.background_color != 'default' and settings.background_color != 'customColor' ? '--backgroundColor: var(--' ~ settings.background_color ~ ')',
+    settings.background_color == 'customColor' ? '--backgroundColor: ' ~ settings.background_custom_color,
+  ]|remove_empty
+%}
+
 {% if content %}
-  <section {{ attributes.addClass(classes) }}>
+  <section {{ attributes.setAttribute('style', style_vars|join('; ')).addClass(classes) }}>
     <h2 class='visually-hidden'>{{ settings.label }}</h2>
     {% if content.threeColumns__left %}
       <div {{ region_attributes.threeColumns__left.addClass('threeColumns__left-region') }}>

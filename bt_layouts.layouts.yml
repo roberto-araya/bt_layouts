@@ -17,7 +17,7 @@ bt_two_columns:
   label: 'BT Two columns'
   category: 'Btester Layouts'
   template: layouts/bt-two-columns
-  class: Drupal\bt_layouts\Plugin\Layout\LayoutColumns
+  class: Drupal\bt_layouts\Plugin\Layout\LayoutTwoColumns
   default_region: twoColumns__left
   icon_map:
     - [twoColumns__left, twoColumns__right]
@@ -33,7 +33,7 @@ bt_three_columns:
   label: 'BT Three columns'
   category: 'Btester Layouts'
   template: layouts/bt-three-columns
-  class: Drupal\bt_layouts\Plugin\Layout\LayoutColumns
+  class: Drupal\bt_layouts\Plugin\Layout\LayoutThreeColumns
   default_region: threeColumns__middle
   icon_map:
     - [threeColumns__left, threeColumns__middle, threeColumns__right]

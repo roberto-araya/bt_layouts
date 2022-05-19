@@ -10,14 +10,13 @@ use Drupal\Core\Form\FormStateInterface;
 /**
  * Provides a layout base for custom layouts.
  */
-class LayoutColumns extends LayoutColumn {
+class LayoutThreeColumns extends LayoutTwoColumns {
 
   /**
    * {@inheritdoc}
    */
   public function defaultConfiguration(): array {
     $config = parent::defaultConfiguration();
-    $config['gap'] = DefaultConfigLayout::GRID_GAP_NONE;
     return $config;
   }
 
@@ -25,16 +24,8 @@ class LayoutColumns extends LayoutColumn {
    * {@inheritdoc}
    */
   public function buildConfigurationForm(array $form, FormStateInterface $form_state): array {
-    $gapOptions = $this->getGapOptions();
+    $columnsOptions = $this->getColumnsOptions();
     $parent_form = parent::buildConfigurationForm($form, $form_state);
-    $parent_form['gap'] = [
-      '#type' => 'select',
-      '#title' => $this->t('Gap'),
-      '#options' => $gapOptions,
-      '#weight' => 30,
-      '#default_value' => $this->configuration['gap'],
-      '#required' => TRUE,
-    ];
     return $parent_form;
   }
 
@@ -52,6 +43,7 @@ class LayoutColumns extends LayoutColumn {
 
     $this->configuration['label'] = $values['label'];
     $this->configuration['container_type'] = $values['container_type'];
+    $this->configuration['columns_size'] = $values['columns_size'];
     $this->configuration['background_color'] = $values['background_color'];
     $this->configuration['background_custom_color'] = $values['background_custom_color'];
     $this->configuration['gap'] = $values['gap'];
@@ -61,19 +53,31 @@ class LayoutColumns extends LayoutColumn {
   }
 
   /**
-   * Get the gap options.
+   * Columns options.
    *
    * @return array
-   *   The gap options.
+   *   The column list options.
    */
-  protected function getGapOptions(): array {
+  protected function getColumnsOptions(): array {
     return [
-      DefaultConfigLayout::GRID_GAP_NONE => $this->t('None'),
-      DefaultConfigLayout::GRID_GAP_HALF => $this->t('Half - 0.5rem'),
-      DefaultConfigLayout::GRID_GAP_NORMAL => $this->t('Normal - 1rem'),
-      DefaultConfigLayout::GRID_GAP_DOUBLE => $this->t('Double - 2rem'),
-      DefaultConfigLayout::GRID_GAP_TRIPLE => $this->t('Triple - 3rem'),
+      '33-33-33' => $this->t('33-33-33'),
+      '30-30-40' => $this->t('30-30-40'),
+      '30-40-30' => $this->t('30-40-30'),
+      '30-50-20' => $this->t('30-50-20'),
+      '40-30-30' => $this->t('40-30-30'),
+      '40-40-20' => $this->t('40-40-20'),
+      '40-20-40' => $this->t('40-20-40'),
+      '20-40-40' => $this->t('20-40-40'),
+      '20-30-50' => $this->t('20-30-50'),
+      '20-20-60' => $this->t('20-20-60'),
+      '20-50-30' => $this->t('20-50-30'),
+      '20-60-20' => $this->t('20-60-20'),    
+      '50-30-20' => $this->t('50-30-20'),
+      '50-20-30' => $this->t('50-20-30'),
+      '60-20-20' => $this->t('60-20-20'),
+      '25-50-25' => $this->t('25-50-25'),
     ];
   }
 
 }
+
