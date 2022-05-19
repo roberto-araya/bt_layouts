@@ -4,7 +4,6 @@ declare(strict_types = 1);
 
 namespace Drupal\bt_layouts\Plugin\Layout;
 
-use Drupal\bt_layouts\DefaultConfigLayout;
 use Drupal\Core\Form\FormStateInterface;
 
 /**

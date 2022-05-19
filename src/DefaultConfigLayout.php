@@ -89,4 +89,5 @@ final class DefaultConfigLayout {
   public const GRID_BACKGROUND_COLOR_GRAY_800 = 'bs-gray-800';
   public const GRID_BACKGROUND_COLOR_GRAY_900 = 'bs-gray-900';
   public const GRID_BACKGROUND_COLOR_CUSTOM = 'customColor';
+
 }

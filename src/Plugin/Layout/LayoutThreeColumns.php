@@ -4,7 +4,6 @@ declare(strict_types = 1);
 
 namespace Drupal\bt_layouts\Plugin\Layout;
 
-use Drupal\bt_layouts\DefaultConfigLayout;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
@@ -24,7 +23,6 @@ class LayoutThreeColumns extends LayoutTwoColumns {
    * {@inheritdoc}
    */
   public function buildConfigurationForm(array $form, FormStateInterface $form_state): array {
-    $columnsOptions = $this->getColumnsOptions();
     $parent_form = parent::buildConfigurationForm($form, $form_state);
     return $parent_form;
   }
@@ -71,7 +69,7 @@ class LayoutThreeColumns extends LayoutTwoColumns {
       '20-30-50' => $this->t('20-30-50'),
       '20-20-60' => $this->t('20-20-60'),
       '20-50-30' => $this->t('20-50-30'),
-      '20-60-20' => $this->t('20-60-20'),    
+      '20-60-20' => $this->t('20-60-20'),
       '50-30-20' => $this->t('50-30-20'),
       '50-20-30' => $this->t('50-20-30'),
       '60-20-20' => $this->t('60-20-20'),
@@ -80,4 +78,3 @@ class LayoutThreeColumns extends LayoutTwoColumns {
   }
 
 }
-

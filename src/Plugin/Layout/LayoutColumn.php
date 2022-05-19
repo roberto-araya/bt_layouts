@@ -66,8 +66,8 @@ class LayoutColumn extends LayoutDefault {
 
     $form['background_custom_color'] = [
       '#type' => 'color',
-      '#title' => t('Custom color'),
-      '#description' => t("Select a custom color as background."),
+      '#title' => $this->t('Custom color'),
+      '#description' => $this->t("Select a custom color as background."),
       '#default_value' => $this->configuration['background_custom_color'],
       '#weight' => 30,
       '#states' => [
