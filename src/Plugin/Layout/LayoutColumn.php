@@ -47,6 +47,7 @@ class LayoutColumn extends LayoutDefault {
     $form['hide_label'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Hide label'),
+      '#default_value' => $this->configuration['hide_label'],
     ];
 
     $form['container_type'] = [
