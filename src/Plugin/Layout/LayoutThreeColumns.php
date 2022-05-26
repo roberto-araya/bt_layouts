@@ -34,13 +34,6 @@ class LayoutThreeColumns extends LayoutTwoColumns {
   }
 
   /**
-   * {@inheritdoc}
-   */
-  public function submitConfigurationForm(array &$form, FormStateInterface $form_state) {
-    parent::submitConfigurationForm($form, $form_state);
-  }
-
-  /**
    * Columns options.
    *
    * @return array

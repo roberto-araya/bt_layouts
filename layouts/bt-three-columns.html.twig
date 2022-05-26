@@ -38,7 +38,7 @@
 
 {% if content %}
   <section {{ attributes.setAttribute('style', style_vars|join('; ')).addClass(classes) }}>
-    <h2 {{ title_attributes.addClass(title_classes) }}>{{ settings.label }}>{{ settings.label }}</h2>
+    <h2 {{ title_attributes.addClass(title_classes) }}>{{ settings.label }}</h2>
     <div {{ grid_attributes.addClass(grid_classes) }}>
       {% if content.threeColumns__left %}
         <div {{ region_attributes.threeColumns__left.addClass('threeColumns__left-region') }}>
