@@ -44,6 +44,11 @@ class LayoutColumn extends LayoutDefault {
 
     $form = parent::buildConfigurationForm($form, $form_state);
 
+    $form['hide_label'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Hide label'),
+    ];
+
     $form['container_type'] = [
       '#type' => 'select',
       '#title' => $this->t('Container type'),
@@ -127,6 +132,7 @@ class LayoutColumn extends LayoutDefault {
   public function submitConfigurationForm(array &$form, FormStateInterface $form_state) {
     $values = $form_state->getValues();
     $this->configuration['label'] = $values['label'];
+    $this->configuration['hide_label'] = $values['hide_label'];
     $this->configuration['container_type'] = $values['container_type'];
     $this->configuration['background_color'] = $values['background_color'];
     $this->configuration['background_custom_color'] = $values['background_custom_color'];

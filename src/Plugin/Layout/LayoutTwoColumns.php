@@ -46,17 +46,9 @@ class LayoutTwoColumns extends LayoutColumns {
    * {@inheritdoc}
    */
   public function submitConfigurationForm(array &$form, FormStateInterface $form_state) {
+    parent::submitConfigurationForm($form, $form_state);
     $values = $form_state->getValues();
-
-    $this->configuration['label'] = $values['label'];
-    $this->configuration['container_type'] = $values['container_type'];
     $this->configuration['columns_size'] = $values['columns_size'];
-    $this->configuration['background_color'] = $values['background_color'];
-    $this->configuration['background_custom_color'] = $values['background_custom_color'];
-    $this->configuration['gap'] = $values['gap'];
-    $this->configuration['padding_top'] = $values['padding_top'];
-    $this->configuration['padding_bottom'] = $values['padding_bottom'];
-    $this->configuration['class'] = $values['extra']['class'];
   }
 
   /**

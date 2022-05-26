@@ -1,27 +1,27 @@
 /* Container Types*/
 .threeColumns {
   --defaultBgColor: transparent;
-  display: grid;
-  grid-auto-columns: 1fr;
   background-color: var(--backgroundColor, var(--defaultBgColor));
 }
 
-.threeColumns--33-33-33,
-.threeColumns--30-30-40,
-.threeColumns--30-40-30,
-.threeColumns--30-50-20,
-.threeColumns--40-30-30,
-.threeColumns--40-40-20,
-.threeColumns--40-20-40,
-.threeColumns--20-40-40,
-.threeColumns--20-30-50,
-.threeColumns--20-20-60,
-.threeColumns--20-50-30,
-.threeColumns--20-60-20,
-.threeColumns--50-30-20,
-.threeColumns--50-20-30,
-.threeColumns--60-20-20,
-.threeColumns--25-50-25 {
+.threeColumns__grid-33-33-33,
+.threeColumns__grid-30-30-40,
+.threeColumns__grid-30-40-30,
+.threeColumns__grid-30-50-20,
+.threeColumns__grid-40-30-30,
+.threeColumns__grid-40-40-20,
+.threeColumns__grid-40-20-40,
+.threeColumns__grid-20-40-40,
+.threeColumns__grid-20-30-50,
+.threeColumns__grid-20-20-60,
+.threeColumns__grid-20-50-30,
+.threeColumns__grid-20-60-20,
+.threeColumns__grid-50-30-20,
+.threeColumns__grid-50-20-30,
+.threeColumns__grid-60-20-20,
+.threeColumns__grid-25-50-25 {
+  display: grid;
+  grid-auto-columns: 1fr;
   grid-template-areas: "left left left"
                        "middle middle middle"
                        "right right right";
@@ -54,89 +54,89 @@
 }
 
 @media screen and (min-width: 768px) {
-  .threeColumns--33-33-33,
-  .threeColumns--30-30-40,
-  .threeColumns--30-40-30,
-  .threeColumns--30-50-20,
-  .threeColumns--40-30-30,
-  .threeColumns--40-40-20,
-  .threeColumns--40-20-40,
-  .threeColumns--20-40-40,
-  .threeColumns--20-30-50,
-  .threeColumns--20-20-60,
-  .threeColumns--20-50-30,
-  .threeColumns--20-60-20,
-  .threeColumns--50-30-20,
-  .threeColumns--50-20-30,
-  .threeColumns--60-20-20,
-  .threeColumns--25-50-25 {
+  .threeColumns__grid-33-33-33,
+  .threeColumns__grid-30-30-40,
+  .threeColumns__grid-30-40-30,
+  .threeColumns__grid-30-50-20,
+  .threeColumns__grid-40-30-30,
+  .threeColumns__grid-40-40-20,
+  .threeColumns__grid-40-20-40,
+  .threeColumns__grid-20-40-40,
+  .threeColumns__grid-20-30-50,
+  .threeColumns__grid-20-20-60,
+  .threeColumns__grid-20-50-30,
+  .threeColumns__grid-20-60-20,
+  .threeColumns__grid-50-30-20,
+  .threeColumns__grid-50-20-30,
+  .threeColumns__grid-60-20-20,
+  .threeColumns__grid-25-50-25 {
     grid-template-areas:  "middle middle middle middle middle middle"
                           "left left left right right right";
   }
 }
 
 @media screen and (min-width: 1024px) {
-  .threeColumns--33-33-33 {
+  .threeColumns__grid-33-33-33 {
     grid-template-areas: "left left left middle middle middle right right right";
   }
 
-  .threeColumns--30-30-40 {
+  .threeColumns__grid-30-30-40 {
     grid-template-areas: "left left left middle middle middle right right right right";
   }
 
-  .threeColumns--30-40-30 {
+  .threeColumns__grid-30-40-30 {
     grid-template-areas: "left left left middle middle middle middle right right right";
   }
 
-  .threeColumns--30-50-20 {
+  .threeColumns__grid-30-50-20 {
     grid-template-areas: "left left left middle middle middle middle middle right right";
   }
 
-  .threeColumns--40-30-30 {
+  .threeColumns__grid-40-30-30 {
     grid-template-areas: "left left left left middle middle middle right right right";
   }
 
-  .threeColumns--40-40-20 {
+  .threeColumns__grid-40-40-20 {
     grid-template-areas: "left left left left middle middle middle middle right right";
   }
 
-  .threeColumns--40-20-40 {
+  .threeColumns__grid-40-20-40 {
     grid-template-areas: "left left left left middle middle right right right right";
   }
 
-  .threeColumns--20-40-40 {
+  .threeColumns__grid-20-40-40 {
     grid-template-areas: "left left middle middle middle middle right right right right";
   }
 
-  .threeColumns--20-30-50 {
+  .threeColumns__grid-20-30-50 {
     grid-template-areas: "left left middle middle middle right right right right right";
   }
 
-  .threeColumns--20-20-60 {
+  .threeColumns__grid-20-20-60 {
     grid-template-areas: "left left middle middle right right right right right right";
   }
 
-  .threeColumns--20-50-30 {
+  .threeColumns__grid-20-50-30 {
     grid-template-areas: "left left middle middle middle middle middle right right right";
   }
 
-  .threeColumns--20-60-20 {
+  .threeColumns__grid-20-60-20 {
     grid-template-areas: "left left middle middle middle middle middle middle right right";
   }
 
-  .threeColumns--50-30-20 {
+  .threeColumns__grid-50-30-20 {
     grid-template-areas: "left left left left left middle middle middle right right";
   }
 
-  .threeColumns--50-20-30  {
+  .threeColumns__grid-50-20-30  {
     grid-template-areas: "left left left left left middle middle right right right";
   }
 
-  .threeColumns--60-20-20 {
+  .threeColumns__grid-60-20-20 {
     grid-template-areas: "left left left left left left middle middle right right";
   }
 
-  .threeColumns--25-50-25 {
+  .threeColumns__grid-25-50-25 {
     grid-template-areas: "left left middle middle middle middle right right";
   }
 }

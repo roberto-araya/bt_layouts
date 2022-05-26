@@ -3,6 +3,10 @@
   background-color: var(--backgroundColor, var(--defaultBgColor));
 }
 
+.oneColumn--full {
+  display: grid;
+  grid-template-columns: 100%;
+}
 
 .oneColumn--box {
   display: grid;
@@ -14,7 +18,7 @@
   grid-template-columns: 1fr minmax(320px, 80%) 1fr;
 }
 
-.oneColumn--full {
+.oneColumn--full > .grid-container {
   display: grid;
   grid-template-columns: 100%;
 }

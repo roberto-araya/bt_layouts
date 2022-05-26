@@ -2,10 +2,30 @@
   set classes = [
     'threeColumns',
     settings.container_type ? 'threeColumns--' ~ settings.container_type : '',
-    settings.columns_size ? 'threeColumns--' ~ settings.columns_size : '',
     settings.padding_top ? settings.padding_top : '',
     settings.padding_bottom ? settings.padding_bottom : '',
     settings.gap ? settings.gap : '',
+  ]
+%}
+
+{%
+  set title_attributes = create_attribute()
+%}
+
+{%
+  set title_classes = [
+    'threeColumns__section-title',
+    settings.hide_label == TRUE ? 'visually-hidden',
+  ]
+%}
+
+{%
+  set grid_attributes = create_attribute()
+%}
+
+{%
+  set grid_classes = [
+    settings.columns_size ? 'threeColumns__grid-' ~ settings.columns_size : '',
   ]
 %}
 
@@ -18,21 +38,23 @@
 
 {% if content %}
   <section {{ attributes.setAttribute('style', style_vars|join('; ')).addClass(classes) }}>
-    <h2 class='visually-hidden'>{{ settings.label }}</h2>
-    {% if content.threeColumns__left %}
-      <div {{ region_attributes.threeColumns__left.addClass('threeColumns__left-region') }}>
-        {{ content.threeColumns__left }}
-      </div>
-    {% endif %}
-    {% if content.threeColumns__middle %}
-      <div {{ region_attributes.threeColumns__middle.addClass('threeColumns__middle-region') }}>
-        {{ content.threeColumns__middle }}
-      </div>
-    {% endif %}    
-    {% if content.threeColumns__right %}
-      <div {{ region_attributes.threeColumns__right.addClass('threeColumns__right-region') }}>
-        {{ content.threeColumns__right }}
-      </div>
-    {% endif %}
+    <h2 {{ title_attributes.addClass(title_classes) }}>{{ settings.label }}>{{ settings.label }}</h2>
+    <div {{ grid_attributes.addClass(grid_classes) }}>
+      {% if content.threeColumns__left %}
+        <div {{ region_attributes.threeColumns__left.addClass('threeColumns__left-region') }}>
+          {{ content.threeColumns__left }}
+        </div>
+      {% endif %}
+      {% if content.threeColumns__middle %}
+        <div {{ region_attributes.threeColumns__middle.addClass('threeColumns__middle-region') }}>
+          {{ content.threeColumns__middle }}
+        </div>
+      {% endif %}    
+      {% if content.threeColumns__right %}
+        <div {{ region_attributes.threeColumns__right.addClass('threeColumns__right-region') }}>
+          {{ content.threeColumns__right }}
+        </div>
+      {% endif %}
+    </div>
   </section>
 {% endif %}

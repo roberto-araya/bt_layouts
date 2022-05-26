@@ -8,6 +8,17 @@
 %}
 
 {%
+  set title_attributes = create_attribute()
+%}
+
+{%
+  set title_classes = [
+    'oneColumn__section-title',
+    settings.hide_label == TRUE ? 'visually-hidden',
+  ]
+%}
+
+{%
   set style_vars = [
     settings.background_color != 'default' and settings.background_color != 'customColor' ? '--backgroundColor: var(--' ~ settings.background_color ~ ')',
     settings.background_color == 'customColor' ? '--backgroundColor: ' ~ settings.background_custom_color,
@@ -16,7 +27,7 @@
 
 {% if content %}
   <section {{ attributes.setAttribute('style', style_vars|join('; ')).addClass(classes) }}>
-    <h2 class='visually-hidden'>{{ settings.label }}</h2>
+    <h2 {{ title_attributes.addClass(title_classes) }}>{{ settings.label }}</h2>
     {% if content.oneColumn__main %}
       <div {{ region_attributes.oneColumn__main.addClass('oneColumn--' ~ settings.container_type ~ '__main-region') }}>
         {{ content.oneColumn__main }}

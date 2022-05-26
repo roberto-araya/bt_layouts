@@ -9,28 +9,51 @@
   ]
 %}
 
+{%
+  set title_attributes = create_attribute()
+%}
+
+{%
+  set title_classes = [
+    'fourColumns__section-title',
+    settings.hide_label == TRUE ? 'visually-hidden',
+  ]
+%}
+
+{%
+  set grid_attributes = create_attribute()
+%}
+
+{%
+  set grid_classes = [
+    'fourColumns__grid',
+  ]
+%}
+
 {% if content %}
   <section {{ attributes.addClass(classes) }}>
-    <h2 class='visually-hidden'>{{ settings.label }}</h2>
-    {% if content.fourColumns__left %}
-      <div {{ region_attributes.fourColumns__left.addClass('fourColumns__left-region') }}>
-        {{ content.fourColumns__left }}
-      </div>
-    {% endif %}
-    {% if content.fourColumns__middleLeft %}
-      <div {{ region_attributes.fourColumns__middleLeft.addClass('fourColumns__middleLeft-region') }}>
-        {{ content.fourColumns__middleLeft }}
-      </div>
-    {% endif %}
-    {% if content.fourColumns__middleRight %}
-      <div {{ region_attributes.fourColumns__middleRight.addClass('fourColumns__middleRight-region') }}>
-        {{ content.fourColumns__middleRight }}
-      </div>
-    {% endif %}
-    {% if content.fourColumns__right %}
-      <div {{ region_attributes.fourColumns__right.addClass('fourColumns__right-region') }}>
-        {{ content.fourColumns__right }}
-      </div>
-    {% endif %}  
+    <h2 {{ title_attributes.addClass(title_classes) }}>{{ settings.label }}</h2>
+    <div {{ grid_attributes.addClass(grid_classes) }}>
+      {% if content.fourColumns__left %}
+        <div {{ region_attributes.fourColumns__left.addClass('fourColumns__left-region') }}>
+          {{ content.fourColumns__left }}
+        </div>
+      {% endif %}
+      {% if content.fourColumns__middleLeft %}
+        <div {{ region_attributes.fourColumns__middleLeft.addClass('fourColumns__middleLeft-region') }}>
+          {{ content.fourColumns__middleLeft }}
+        </div>
+      {% endif %}
+      {% if content.fourColumns__middleRight %}
+        <div {{ region_attributes.fourColumns__middleRight.addClass('fourColumns__middleRight-region') }}>
+          {{ content.fourColumns__middleRight }}
+        </div>
+      {% endif %}
+      {% if content.fourColumns__right %}
+        <div {{ region_attributes.fourColumns__right.addClass('fourColumns__right-region') }}>
+          {{ content.fourColumns__right }}
+        </div>
+      {% endif %}    
+    </div>
   </section>
 {% endif %}

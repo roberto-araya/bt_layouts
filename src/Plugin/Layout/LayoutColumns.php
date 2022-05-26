@@ -51,6 +51,7 @@ class LayoutColumns extends LayoutColumn {
     $values = $form_state->getValues();
 
     $this->configuration['label'] = $values['label'];
+    $this->configuration['hide_label'] = $values['hide_label'];
     $this->configuration['container_type'] = $values['container_type'];
     $this->configuration['background_color'] = $values['background_color'];
     $this->configuration['background_custom_color'] = $values['background_custom_color'];

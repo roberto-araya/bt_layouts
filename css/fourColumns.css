@@ -1,7 +1,5 @@
 /* Container Types*/
-.fourColumns--box,
-.fourColumns--wide,
-.fourColumns--full {
+.fourColumns__grid {
   display: grid;
   grid-template-areas: "left left left left"
                        "mleft mleft mleft mleft"
@@ -42,9 +40,7 @@
 }
 
 @media screen and (min-width: 640px) {
-  .fourColumns--box,
-  .fourColumns--wide,
-  .fourColumns--full {
+  .fourColumns__grid {
     grid-template-areas: "left left left left"
                          "mleft mleft mleft mleft"
                          "mright mright mright mright"
@@ -53,18 +49,14 @@
 }
 
 @media screen and (min-width: 768px) {
-  .fourColumns--box,
-  .fourColumns--wide,
-  .fourColumns--full {
+  .fourColumns__grid {
     grid-template-areas:  "left left left left mleft mleft mleft mleft"
                           "mright mright mright mright right right right right";
   }
 }
 
 @media screen and (min-width: 1024px) {
-  .fourColumns--box,
-  .fourColumns--wide,
-  .fourColumns--full {
+  .fourColumns__grid {
     grid-template-areas: "left mleft mright right";
   }
 }
