@@ -65,3 +65,25 @@ bt_four_columns:
       label: Middle right column
     fourColumns__right:
       label: Right column
+
+# Five Columns 
+bt_five_columns:
+  label: 'Five columns'
+  category: 'Btester Layouts'
+  template: layouts/bt-five-columns
+  class: Drupal\bt_layouts\Plugin\Layout\LayoutColumns
+  default_region: fiveColumns__middle
+  icon_map:
+    - [fiveColumns__left, fiveColumns__middleLeft, fiveColumns__middle, fiveColumns__middleRight, fiveColumns__right]
+  library: bt_layouts/bt-five-columns
+  regions:
+    fiveColumns__left:
+      label: Left column
+    fiveColumns__middleLeft:
+      label: Middle left column
+    fiveColumns__middle:
+      label: Middle column
+    fiveColumns__middleRight:
+      label: Middle right column
+    fiveColumns__right:
+      label: Right column

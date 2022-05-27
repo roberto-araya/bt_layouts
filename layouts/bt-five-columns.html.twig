@@ -1,0 +1,64 @@
+{%
+  set classes = [
+    'fiveColumns',
+    settings.container_type ? 'fiveColumns--' ~ settings.container_type : '',
+    settings.background_color ? settings.background_color : '',
+    settings.padding_top ? settings.padding_top : '',
+    settings.padding_bottom ? settings.padding_bottom : '',
+    settings.gap ? settings.gap : '',
+  ]
+%}
+
+{%
+  set title_attributes = create_attribute()
+%}
+
+{%
+  set title_classes = [
+    'fiveColumns__section-title',
+    settings.hide_label == TRUE ? 'visually-hidden',
+  ]
+%}
+
+{%
+  set grid_attributes = create_attribute()
+%}
+
+{%
+  set grid_classes = [
+    'fiveColumns__grid',
+  ]
+%}
+
+{% if content %}
+  <section {{ attributes.addClass(classes) }}>
+    <h2 {{ title_attributes.addClass(title_classes) }}>{{ settings.label }}</h2>
+    <div {{ grid_attributes.addClass(grid_classes) }}>
+      {% if content.fiveColumns__left %}
+        <div {{ region_attributes.fiveColumns__left.addClass('fiveColumns__left-region') }}>
+          {{ content.fiveColumns__left }}
+        </div>
+      {% endif %}
+      {% if content.fiveColumns__middleLeft %}
+        <div {{ region_attributes.fiveColumns__middleLeft.addClass('fiveColumns__middleLeft-region') }}>
+          {{ content.fiveColumns__middleLeft }}
+        </div>
+      {% endif %}
+      {% if content.fiveColumns__middle %}
+        <div {{ region_attributes.fiveColumns__middleLeft.addClass('fiveColumns__middle-region') }}>
+          {{ content.fiveColumns__middle }}
+        </div>
+      {% endif %}
+      {% if content.fiveColumns__middleRight %}
+        <div {{ region_attributes.fiveColumns__middleRight.addClass('fiveColumns__middleRight-region') }}>
+          {{ content.fiveColumns__middleRight }}
+        </div>
+      {% endif %}
+      {% if content.fiveColumns__right %}
+        <div {{ region_attributes.fiveColumns__right.addClass('fiveColumns__right-region') }}>
+          {{ content.fiveColumns__right }}
+        </div>
+      {% endif %}    
+    </div>
+  </section>
+{% endif %}

@@ -22,3 +22,9 @@ bt-four-columns:
   css:
     layout:
       css/fourColumns.css: {}
+
+bt-five-columns:
+  version: 1.x
+  css:
+    layout:
+      css/fiveColumns.css: {}

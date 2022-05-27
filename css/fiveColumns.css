@@ -1,0 +1,70 @@
+/* Container Types*/
+.fiveColumns__grid {
+  display: grid;
+  grid-template-areas: "left left left left"
+                       "mleft mleft mleft mleft"
+                       "middle middle middle middle"
+                       "mright mright mright mright"
+                       "right right right right";
+  grid-auto-columns: 1fr;
+}
+
+.fiveColumns--box {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.fiveColumns--wide {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+/* Columns */
+.fiveColumns__left-region {
+  grid-area: left;
+  display: grid;
+}
+
+.fiveColumns__middleLeft-region {
+  grid-area: mleft;
+  display: grid;
+}
+
+.fiveColumns__middle-region {
+  grid-area: middle;
+  display: grid;
+}
+
+.fiveColumns__middleRight-region {
+  grid-area: mright;
+  display: grid;
+}
+
+.fiveColumns__right-region {
+  grid-area: right;
+  display: grid;
+}
+
+@media screen and (min-width: 640px) {
+  .fiveColumns__grid {
+    grid-template-areas: "left left left left"
+                         "mleft mleft mleft mleft"
+                         "middle middle middle middle"
+                         "mright mright mright mright"
+                         "right right right right";
+  }  
+}
+
+@media screen and (min-width: 768px) {
+  .fiveColumns__grid {
+    grid-template-areas:  "left left left left mleft mleft mleft mleft"
+                          "middle middle middle middle middle middle middle middle"
+                          "mright mright mright mright right right right right";
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .fiveColumns__grid {
+    grid-template-areas: "left mleft middle mright right";
+  }
+}
