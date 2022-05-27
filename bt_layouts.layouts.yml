@@ -1,6 +1,6 @@
 # One Column
 bt_one_column:
-  label: 'BT One column'
+  label: 'One column'
   category: 'Btester Layouts'
   template: layouts/bt-one-column
   class: Drupal\bt_layouts\Plugin\Layout\LayoutColumn
@@ -14,7 +14,7 @@ bt_one_column:
 
 # Two Columns 
 bt_two_columns:
-  label: 'BT Two columns'
+  label: 'Two columns'
   category: 'Btester Layouts'
   template: layouts/bt-two-columns
   class: Drupal\bt_layouts\Plugin\Layout\LayoutTwoColumns
@@ -30,7 +30,7 @@ bt_two_columns:
 
 # Three Columns
 bt_three_columns:
-  label: 'BT Three columns'
+  label: 'Three columns'
   category: 'Btester Layouts'
   template: layouts/bt-three-columns
   class: Drupal\bt_layouts\Plugin\Layout\LayoutThreeColumns
@@ -48,7 +48,7 @@ bt_three_columns:
 
 # Four Columns 
 bt_four_columns:
-  label: 'BT Four columns'
+  label: 'Four columns'
   category: 'Btester Layouts'
   template: layouts/bt-four-columns
   class: Drupal\bt_layouts\Plugin\Layout\LayoutColumns
