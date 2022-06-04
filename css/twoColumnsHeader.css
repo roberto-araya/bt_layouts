@@ -1,0 +1,89 @@
+/* Container Types*/
+.twoColumns {
+  --defaultBgColor: transparent;
+  --defaultLabelColor: var(--bs-primary);
+  background-color: var(--backgroundColor, var(--defaultBgColor));
+}
+
+.twoColumns__grid-50-50,
+.twoColumns__grid-40-60,
+.twoColumns__grid-30-70,
+.twoColumns__grid-25-75,
+.twoColumns__grid-20-80,
+.twoColumns__grid-80-20,
+.twoColumns__grid-75-25,
+.twoColumns__grid-70-30,
+.twoColumns__grid-60-40 {
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-template-areas: "header header header header header"
+                       "left left left left left"
+                       "right right right right right";
+}
+
+.twoColumns__section-title {
+  color: var(--labelColor, var(--defaultLabelColor));
+}
+
+.twoColumns--box {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.twoColumns--wide {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+/* Columns */
+.twoColumns__header-region {
+  display: grid;
+}
+
+.twoColumns__left-region {
+  grid-area: left;
+  display: grid;
+}
+
+.twoColumns__right-region {
+  grid-area: right;
+  display: grid;
+}
+
+@media screen and (min-width: 768px) {
+  .twoColumns__grid-50-50 {
+    grid-template-areas: "left left left left left right right right right right";
+  }
+
+  .twoColumns__grid-40-60 {
+    grid-template-areas: "left left left left right right right right right right";
+  }
+
+  .twoColumns__grid-30-70 {
+    grid-template-areas: "left left left right right right right right right right";
+  }
+
+  .twoColumns__grid-25-75 {
+    grid-template-areas: "left left right right right right right right";
+  }
+
+  .twoColumns__grid-20-80 {
+    grid-template-areas: "left left right right right right right right right right";
+  }
+
+  .twoColumns__grid-80-20 {
+    grid-template-areas: "left left left left left left left left right right";
+  }
+
+  .twoColumns__grid-75-25 {
+    grid-template-areas: "left left left left left left right right";
+  }
+
+  .twoColumns__grid-70-30 {
+    grid-template-areas: "left left left left left left left right right right";
+  }
+
+  .twoColumns__grid-60-40 {
+    grid-template-areas: "left left left left left left right right right right";
+  }
+}

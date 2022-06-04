@@ -28,6 +28,25 @@ bt_two_columns:
     twoColumns__right:
       label: Right column
 
+# Two Columns Header
+bt_two_columns_header:
+  label: 'Two columns Header'
+  category: 'Btester Layouts'
+  template: layouts/bt-two-columns-header
+  class: Drupal\bt_layouts\Plugin\Layout\LayoutTwoColumns
+  default_region: twoColumns__left
+  icon_map:
+    - [twoColumns__header]
+    - [twoColumns__left, twoColumns__right]
+  library: bt_layouts/bt-two-columns-header
+  regions:
+    twoColumns__header:
+      label: Top column
+    twoColumns__left:
+      label: Left column
+    twoColumns__right:
+      label: Right column
+
 # Three Columns
 bt_three_columns:
   label: 'Three columns'
@@ -39,6 +58,27 @@ bt_three_columns:
     - [threeColumns__left, threeColumns__middle, threeColumns__right]
   library: bt_layouts/bt-three-columns
   regions:
+    threeColumns__left:
+      label: Left column
+    threeColumns__middle:
+      label: Middle column
+    threeColumns__right:
+      label: Right column
+
+# Three Columns Header
+bt_three_columns_header:
+  label: 'Three columns Header'
+  category: 'Btester Layouts'
+  template: layouts/bt-three-columns-header
+  class: Drupal\bt_layouts\Plugin\Layout\LayoutThreeColumns
+  default_region: threeColumns__middle
+  icon_map:
+    - [threeColumns__header]
+    - [threeColumns__left, threeColumns__middle, threeColumns__right]
+  library: bt_layouts/bt-three-columns-header
+  regions:
+    threeColumns__header:
+      label: Top column
     threeColumns__left:
       label: Left column
     threeColumns__middle:
@@ -66,6 +106,29 @@ bt_four_columns:
     fourColumns__right:
       label: Right column
 
+# Four Columns Header
+bt_four_columns_header:
+  label: 'Four columns Header'
+  category: 'Btester Layouts'
+  template: layouts/bt-four-columns-header
+  class: Drupal\bt_layouts\Plugin\Layout\LayoutColumns
+  default_region: fourColumns__middleLeft
+  icon_map:
+    - [fourColumns_header]
+    - [fourColumns__left, fourColumns__middleLeft, fourColumns__middleRight, fourColumns__right]
+  library: bt_layouts/bt-four-columns-header
+  regions:
+    fourColumns__header:
+      label: Top column
+    fourColumns__left:
+      label: Left column
+    fourColumns__middleLeft:
+      label: Middle left column
+    fourColumns__middleRight:
+      label: Middle right column
+    fourColumns__right:
+      label: Right column
+
 # Five Columns 
 bt_five_columns:
   label: 'Five columns'
@@ -77,6 +140,31 @@ bt_five_columns:
     - [fiveColumns__left, fiveColumns__middleLeft, fiveColumns__middle, fiveColumns__middleRight, fiveColumns__right]
   library: bt_layouts/bt-five-columns
   regions:
+    fiveColumns__left:
+      label: Left column
+    fiveColumns__middleLeft:
+      label: Middle left column
+    fiveColumns__middle:
+      label: Middle column
+    fiveColumns__middleRight:
+      label: Middle right column
+    fiveColumns__right:
+      label: Right column
+
+# Five Columns Header
+bt_five_columns_header:
+  label: 'Five columns Header'
+  category: 'Btester Layouts'
+  template: layouts/bt-five-columns-header
+  class: Drupal\bt_layouts\Plugin\Layout\LayoutColumns
+  default_region: fiveColumns__middle
+  icon_map:
+    - [fiveColumns__header]
+    - [fiveColumns__left, fiveColumns__middleLeft, fiveColumns__middle, fiveColumns__middleRight, fiveColumns__right]
+  library: bt_layouts/bt-five-columns-header
+  regions:
+    fiveColumns__header:
+      label: Top column
     fiveColumns__left:
       label: Left column
     fiveColumns__middleLeft:

@@ -11,11 +11,23 @@ bt-two-columns:
     layout:
       css/twoColumns.css: {}
 
+bt-two-columns-header:
+  version: 1.x
+  css:
+    layout:
+      css/twoColumnsHeader.css: {}
+
 bt-three-columns:
   version: 1.x
   css:
     layout:
       css/threeColumns.css: {}
+
+bt-three-columns-header:
+  version: 1.x
+  css:
+    layout:
+      css/threeColumnsHeader.css: {}
 
 bt-four-columns:
   version: 1.x
@@ -23,8 +35,20 @@ bt-four-columns:
     layout:
       css/fourColumns.css: {}
 
+bt-four-columns-header:
+  version: 1.x
+  css:
+    layout:
+      css/fourColumnsHeader.css: {}
+
 bt-five-columns:
   version: 1.x
   css:
     layout:
       css/fiveColumns.css: {}
+
+bt-five-columns-header:
+  version: 1.x
+  css:
+    layout:
+      css/fiveColumnsHeader.css: {}

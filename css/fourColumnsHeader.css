@@ -1,0 +1,77 @@
+/* Container Types*/
+.fourColumns {
+  --defaultLabelColor: var(--bs-primary);
+  --defaultBgColor: transparent;
+  background-color: var(--backgroundColor, var(--defaultBgColor));
+}
+
+.fourColumns__section-title {
+  color: var(--labelColor, var(--defaultLabelColor));
+}
+
+.fourColumns__grid {
+  display: grid;
+  grid-template-areas: "left left left left"
+                       "mleft mleft mleft mleft"
+                       "mright mright mright mright"
+                       "right right right right";
+  grid-auto-columns: 1fr;
+}
+
+.fourColumns--box {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.fourColumns--wide {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+/* Columns */
+.fourColumns__header-region {
+  display: grid;
+}
+
+
+.fourColumns__left-region {
+  grid-area: left;
+  display: grid;
+}
+
+.fourColumns__middleLeft-region {
+  grid-area: mleft;
+  display: grid;
+}
+
+.fourColumns__middleRight-region {
+  grid-area: mright;
+  display: grid;
+}
+
+.fourColumns__right-region {
+  grid-area: right;
+  display: grid;
+}
+
+@media screen and (min-width: 640px) {
+  .fourColumns__grid {
+    grid-template-areas: "left left left left"
+                         "mleft mleft mleft mleft"
+                         "mright mright mright mright"
+                         "right right right right";
+  }  
+}
+
+@media screen and (min-width: 768px) {
+  .fourColumns__grid {
+    grid-template-areas:  "left left left left mleft mleft mleft mleft"
+                          "mright mright mright mright right right right right";
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .fourColumns__grid {
+    grid-template-areas: "left mleft mright right";
+  }
+}
