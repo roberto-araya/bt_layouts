@@ -1,6 +1,11 @@
 .oneColumn {
+  --defaultLabelColor: var(--bs-primary);
   --defaultBgColor: transparent;
   background-color: var(--backgroundColor, var(--defaultBgColor));
+}
+
+.oneColumn__section-title {
+  color: var(--labelColor, var(--defaultLabelColor));
 }
 
 .oneColumn--full {

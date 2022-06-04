@@ -1,4 +1,14 @@
 /* Container Types*/
+.fiveColumns {
+  --defaultLabelColor: var(--bs-primary);
+  --defaultBgColor: transparent;
+  background-color: var(--backgroundColor, var(--defaultBgColor));
+}
+
+.fiveColumns__section-title {
+  color: var(--labelColor, var(--defaultLabelColor));
+}
+
 .fiveColumns__grid {
   display: grid;
   grid-template-areas: "left left left left"

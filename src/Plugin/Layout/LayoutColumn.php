@@ -62,6 +62,27 @@ class LayoutColumn extends LayoutDefault {
       '#default_value' => $this->configuration['container_type'],
     ];
 
+    $form['label_color'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Label Color'),
+      '#options' => $backgroundColorOptions,
+      '#weight' => 11,
+      '#default_value' => $this->configuration['label_color'],
+    ];
+
+    $form['label_custom_color'] = [
+      '#type' => 'color',
+      '#title' => $this->t('Custom color'),
+      '#description' => $this->t("Select a custom label color."),
+      '#default_value' => $this->configuration['label_custom_color'],
+      '#weight' => 12,
+      '#states' => [
+        'visible' => [
+          ':input[name="layout_settings[label_color]"]' => ['value' => 'customColor'],
+        ],
+      ],
+    ];
+
     $form['background_color'] = [
       '#type' => 'select',
       '#title' => $this->t('Background Color'),
@@ -135,6 +156,8 @@ class LayoutColumn extends LayoutDefault {
     $this->configuration['label'] = $values['label'];
     $this->configuration['hide_label'] = $values['hide_label'];
     $this->configuration['container_type'] = $values['container_type'];
+    $this->configuration['label_color'] = $values['label_color'];
+    $this->configuration['label_custom_color'] = $values['label_custom_color'];
     $this->configuration['background_color'] = $values['background_color'];
     $this->configuration['background_custom_color'] = $values['background_custom_color'];
     $this->configuration['padding_top'] = $values['padding_top'];

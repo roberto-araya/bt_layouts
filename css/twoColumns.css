@@ -1,6 +1,7 @@
 /* Container Types*/
 .twoColumns {
   --defaultBgColor: transparent;
+  --defaultLabelColor: var(--bs-primary);
   background-color: var(--backgroundColor, var(--defaultBgColor));
 }
 
@@ -17,6 +18,10 @@
   grid-auto-columns: 1fr;
   grid-template-areas: "left left left left left"
                        "right right right right right";
+}
+
+.twoColumns__section-title {
+  color: var(--labelColor, var(--defaultLabelColor));
 }
 
 .twoColumns--box {

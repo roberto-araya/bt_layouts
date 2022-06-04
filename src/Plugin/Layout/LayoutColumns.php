@@ -53,6 +53,8 @@ class LayoutColumns extends LayoutColumn {
     $this->configuration['label'] = $values['label'];
     $this->configuration['hide_label'] = $values['hide_label'];
     $this->configuration['container_type'] = $values['container_type'];
+    $this->configuration['label_color'] = $values['label_color'];
+    $this->configuration['label_custom_color'] = $values['label_custom_color'];
     $this->configuration['background_color'] = $values['background_color'];
     $this->configuration['background_custom_color'] = $values['background_custom_color'];
     $this->configuration['gap'] = $values['gap'];

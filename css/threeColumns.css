@@ -1,6 +1,7 @@
 /* Container Types*/
 .threeColumns {
   --defaultBgColor: transparent;
+  --defaultLabelColor: var(--bs-primary);
   background-color: var(--backgroundColor, var(--defaultBgColor));
 }
 
@@ -25,6 +26,10 @@
   grid-template-areas: "left left left"
                        "middle middle middle"
                        "right right right";
+}
+
+.threeColumns__section-title {
+  color: var(--labelColor, var(--defaultLabelColor));
 }
 
 .threeColumns--box {
