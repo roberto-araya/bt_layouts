@@ -1,6 +1,8 @@
 .oneColumn {
   --defaultLabelColor: var(--bs-primary);
   --defaultBgColor: transparent;
+  display: grid;
+  justify-content: center;
   background-color: var(--backgroundColor, var(--defaultBgColor));
 }
 
@@ -9,28 +11,20 @@
 }
 
 .oneColumn--full {
-  display: grid;
   grid-template-columns: 100%;
 }
 
 .oneColumn--box {
-  display: grid;
-  grid-template-columns: 1fr minmax(320px, 60%) 1fr;
+  grid-template-columns: minmax(320px, 60%);
 }
 
 .oneColumn--wide {
-  display: grid;
-  grid-template-columns: 1fr minmax(320px, 80%) 1fr;
-}
-
-.oneColumn--full > .grid-container {
-  display: grid;
-  grid-template-columns: 100%;
+  grid-template-columns: minmax(320px, 80%);
 }
 
 .oneColumn--box__main-region,
 .oneColumn--wide__main-region {
-  grid-column: 2;
+  grid-column: 1;
   display: grid;
 }
 
