@@ -52,7 +52,9 @@ class LayoutColumns extends LayoutColumn {
 
     $this->configuration['label'] = $values['label'];
     $this->configuration['hide_label'] = $values['hide_label'];
-    $this->configuration['container_type'] = $values['container_type'];
+    $this->configuration['container_select'] = $values['container_select'];
+    $this->configuration['full_select'] = $values['full_select'];
+    $this->configuration['box_select'] = $values['box_select'];
     $this->configuration['label_color'] = $values['label_color'];
     $this->configuration['label_custom_color'] = $values['label_custom_color'];
     $this->configuration['background_color'] = $values['background_color'];

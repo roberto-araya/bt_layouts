@@ -3,6 +3,9 @@
   --defaultBgColor: transparent;
   --defaultLabelColor: var(--bs-primary);
   background-color: var(--backgroundColor, var(--defaultBgColor));
+  width: var(--width, 100%);
+  margin: 0 auto;
+  padding: 0 var(--paddingX, 0);
 }
 
 .threeColumns__grid-33-33-33,
@@ -30,16 +33,6 @@
 
 .threeColumns__section-title {
   color: var(--labelColor, var(--defaultLabelColor));
-}
-
-.threeColumns--box {
-  padding-left: 10%;
-  padding-right: 10%;
-}
-
-.threeColumns--wide {
-  padding-left: 5%;
-  padding-right: 5%;
 }
 
 /* Columns */

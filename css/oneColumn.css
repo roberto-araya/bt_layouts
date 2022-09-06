@@ -2,24 +2,17 @@
   --defaultLabelColor: var(--bs-primary);
   --defaultBgColor: transparent;
   display: grid;
+  grid-template-columns: 1fr;
   justify-content: center;
   background-color: var(--backgroundColor, var(--defaultBgColor));
+  width: var(--width, 100%);
+  margin: 0 auto;
+  padding: 0 var(--paddingX, 0);
+
 }
 
 .oneColumn__section-title {
   color: var(--labelColor, var(--defaultLabelColor));
-}
-
-.oneColumn--full {
-  grid-template-columns: 100%;
-}
-
-.oneColumn--box {
-  grid-template-columns: minmax(320px, 60%);
-}
-
-.oneColumn--wide {
-  grid-template-columns: minmax(320px, 80%);
 }
 
 .oneColumn--box__main-region,

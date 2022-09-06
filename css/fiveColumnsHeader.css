@@ -3,6 +3,9 @@
   --defaultLabelColor: var(--bs-primary);
   --defaultBgColor: transparent;
   background-color: var(--backgroundColor, var(--defaultBgColor));
+  width: var(--width, 100%);
+  margin: 0 auto;
+  padding: 0 var(--paddingX, 0);
 }
 
 .fiveColumns__section-title {
@@ -17,16 +20,6 @@
                        "mright mright mright mright"
                        "right right right right";
   grid-auto-columns: 1fr;
-}
-
-.fiveColumns--box {
-  padding-left: 10%;
-  padding-right: 10%;
-}
-
-.fiveColumns--wide {
-  padding-left: 5%;
-  padding-right: 5%;
 }
 
 /* Columns */

@@ -3,6 +3,9 @@
   --defaultBgColor: transparent;
   --defaultLabelColor: var(--bs-primary);
   background-color: var(--backgroundColor, var(--defaultBgColor));
+  width: var(--width, 100%);
+  margin: 0 auto;
+  padding: 0 var(--paddingX, 0);
 }
 
 .twoColumns__grid-50-50,
@@ -22,16 +25,6 @@
 
 .twoColumns__section-title {
   color: var(--labelColor, var(--defaultLabelColor));
-}
-
-.twoColumns--box {
-  padding-left: 10%;
-  padding-right: 10%;
-}
-
-.twoColumns--wide {
-  padding-left: 5%;
-  padding-right: 5%;
 }
 
 /* Columns */

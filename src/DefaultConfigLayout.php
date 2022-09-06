@@ -8,7 +8,9 @@ namespace Drupal\bt_layouts;
  * Provides constants for the Layouts.
  */
 final class DefaultConfigLayout {
-  public const GRID_CONTAINER_TYPE_DEFAULT = 'full';
+  public const GRID_CONTAINER_SELECT = 'full';
+  public const GRID_FULL_SELECT = '0';
+  public const GRID_BOX_SELECT = '100%';
   public const GRID_PADDING_TOP_NONE = 'pt-none';
   public const GRID_PADDING_TOP_HALF = 'pt-half';
   public const GRID_PADDING_TOP_NORMAL = 'pt-normal';

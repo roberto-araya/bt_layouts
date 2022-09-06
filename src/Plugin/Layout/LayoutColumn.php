@@ -26,7 +26,9 @@ class LayoutColumn extends LayoutDefault {
    */
   public function defaultConfiguration(): array {
     return [
-      'container_type' => DefaultConfigLayout::GRID_CONTAINER_TYPE_DEFAULT,
+      'container_select' => DefaultConfigLayout::GRID_CONTAINER_SELECT,
+      'full_select' => DefaultConfigLayout::GRID_FULL_SELECT,
+      'box_select' => DefaultConfigLayout::GRID_BOX_SELECT,
       'background_color' => DefaultConfigLayout::GRID_BACKGROUND_COLOR_PRIMARY,
       'padding_top' => DefaultConfigLayout::GRID_PADDING_TOP_NONE,
       'padding_bottom' => DefaultConfigLayout::GRID_PADDING_BOTTOM_NONE,
@@ -50,16 +52,53 @@ class LayoutColumn extends LayoutDefault {
       '#default_value' => $this->configuration['hide_label'],
     ];
 
-    $form['container_type'] = [
+    $form['container_select'] = [
       '#type' => 'select',
-      '#title' => $this->t('Container type'),
       '#options' => [
-        'full' => $this->t('Full'),
-        'box' => $this->t('Box'),
-        'wide' => $this->t('Wide'),
+        'full' => 'Full',
+        'box' => 'Box'
       ],
-      '#weight' => 10,
-      '#default_value' => $this->configuration['container_type'],
+      '#title' => t('Container Type'),
+      '#description' => t("Select a container type for the width."),
+      '#default_value' => $this->configuration['container_select'],
+    ];
+  
+    $form['full_select'] = [
+      '#type' => 'select',
+      '#options' => [
+        '0' => '100%',
+        '5%' => '90%',
+        '10%' => '80%',
+        '15%' => '70%',
+        '20%' => '60%',
+      ],
+      '#title' => t('Full Container Width'),
+      '#description' => t("Select a width."),
+      '#default_value' => $this->configuration['full_select'],
+      '#states' => [
+        'visible' => [
+          ':input[name="layout_settings[container_select]"]' => ['value' => 'full'],
+        ],
+      ],
+    ];
+
+    $form['box_select'] = [
+      '#type' => 'select',
+      '#options' => [
+        '100%' => '100%',
+        '90%' => '90%',
+        '80%' => '80%',
+        '70%' => '70%',
+        '60%' => '60%',
+      ],
+      '#title' => t('Box Container Width'),
+      '#description' => t("Select a width."),
+      '#default_value' => $this->configuration['box_select'],
+      '#states' => [
+        'visible' => [
+          ':input[name="layout_settings[container_select]"]' => ['value' => 'box'],
+        ],
+      ],
     ];
 
     $form['label_color'] = [
@@ -155,7 +194,9 @@ class LayoutColumn extends LayoutDefault {
     $values = $form_state->getValues();
     $this->configuration['label'] = $values['label'];
     $this->configuration['hide_label'] = $values['hide_label'];
-    $this->configuration['container_type'] = $values['container_type'];
+    $this->configuration['container_select'] = $values['container_select'];
+    $this->configuration['full_select'] = $values['full_select'];
+    $this->configuration['box_select'] = $values['box_select'];
     $this->configuration['label_color'] = $values['label_color'];
     $this->configuration['label_custom_color'] = $values['label_custom_color'];
     $this->configuration['background_color'] = $values['background_color'];
