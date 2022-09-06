@@ -4,7 +4,6 @@
     settings.container_type ? 'twoColumns--' ~ settings.container_type : '',
     settings.padding_top ? settings.padding_top : '',
     settings.padding_bottom ? settings.padding_bottom : '',
-    settings.gap ? settings.gap : '',
   ]
 %}
 
@@ -26,6 +25,7 @@
 {%
   set grid_classes = [
     settings.columns_size ? 'twoColumns__grid-' ~ settings.columns_size : '',
+    settings.gap ? settings.gap : '',
   ]
 %}
 

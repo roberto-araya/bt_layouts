@@ -5,7 +5,6 @@
     settings.background_color ? settings.background_color : '',
     settings.padding_top ? settings.padding_top : '',
     settings.padding_bottom ? settings.padding_bottom : '',
-    settings.gap ? settings.gap : '',
   ]
 %}
 
@@ -27,6 +26,7 @@
 {%
   set grid_classes = [
     'fourColumns__grid',
+    settings.gap ? settings.gap : '',
   ]
 %}
 
