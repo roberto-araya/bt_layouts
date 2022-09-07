@@ -56,7 +56,7 @@ class LayoutColumn extends LayoutDefault {
       '#type' => 'select',
       '#options' => [
         'full' => $this->t('Full'),
-        'box' => $this->t('Box')
+        'box' => $this->t('Box'),
       ],
       '#title' => $this->t('Container Type'),
       '#description' => $this->t("Select a container type for the width."),
