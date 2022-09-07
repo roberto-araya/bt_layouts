@@ -55,25 +55,25 @@ class LayoutColumn extends LayoutDefault {
     $form['container_select'] = [
       '#type' => 'select',
       '#options' => [
-        'full' => 'Full',
-        'box' => 'Box'
+        'full' => $this->t('Full'),
+        'box' => $this->t('Box')
       ],
-      '#title' => t('Container Type'),
-      '#description' => t("Select a container type for the width."),
+      '#title' => $this->t('Container Type'),
+      '#description' => $this->t("Select a container type for the width."),
       '#default_value' => $this->configuration['container_select'],
     ];
-  
+
     $form['full_select'] = [
       '#type' => 'select',
       '#options' => [
-        '0' => '100%',
-        '5%' => '90%',
-        '10%' => '80%',
-        '15%' => '70%',
-        '20%' => '60%',
+        '0' => $this->t('100%'),
+        '5%' => $this->t('90%'),
+        '10%' => $this->t('80%'),
+        '15%' => $this->t('70%'),
+        '20%' => $this->t('60%'),
       ],
-      '#title' => t('Full Container Width'),
-      '#description' => t("Select a width."),
+      '#title' => $this->t('Full Container Width'),
+      '#description' => $this->t("Select a width."),
       '#default_value' => $this->configuration['full_select'],
       '#states' => [
         'visible' => [
@@ -85,14 +85,14 @@ class LayoutColumn extends LayoutDefault {
     $form['box_select'] = [
       '#type' => 'select',
       '#options' => [
-        '100%' => '100%',
-        '90%' => '90%',
-        '80%' => '80%',
-        '70%' => '70%',
-        '60%' => '60%',
+        '100%' => $this->t('100%'),
+        '90%' => $this->t('90%'),
+        '80%' => $this->t('80%'),
+        '70%' => $this->t('70%'),
+        '60%' => $this->t('60%'),
       ],
-      '#title' => t('Box Container Width'),
-      '#description' => t("Select a width."),
+      '#title' => $this->t('Box Container Width'),
+      '#description' => $this->t("Select a width."),
       '#default_value' => $this->configuration['box_select'],
       '#states' => [
         'visible' => [
