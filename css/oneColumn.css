@@ -15,13 +15,7 @@
   color: var(--labelColor, var(--defaultLabelColor));
 }
 
-.oneColumn--box__main-region,
-.oneColumn--wide__main-region {
-  grid-column: 1;
-  display: grid;
-}
-
-.oneColumn--full__main-region {
+.oneColumn__main-region {
   grid-column: 1;
   display: grid;
 }

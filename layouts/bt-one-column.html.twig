@@ -32,7 +32,7 @@
   <section {{ attributes.setAttribute('style', style_vars|join('; ')).addClass(classes) }}>
     <h2 {{ title_attributes.addClass(title_classes) }}>{{ settings.label }}</h2>
     {% if content.oneColumn__main %}
-      <div {{ region_attributes.oneColumn__main.addClass('oneColumn--' ~ settings.container_type ~ '__main-region') }}>
+      <div {{ region_attributes.oneColumn__main.addClass('oneColumn__main-region') }}>
         {{ content.oneColumn__main }}
       </div>
     {% endif %}
