@@ -2,10 +2,12 @@
 .fiveColumns {
   --defaultLabelColor: var(--bs-primary);
   --defaultBgColor: transparent;
+  --defaultWidth: var(--width, 100%);
+  --defaultPaddingX: var(--paddingX, 0);
   background-color: var(--backgroundColor, var(--defaultBgColor));
-  width: var(--width, 100%);
+  width: var(--defaultWidth, 100%);
   margin: 0 auto;
-  padding: 0 var(--paddingX, 0);
+  padding: 0 var(--defaultPaddingX, 0);
 }
 
 .fiveColumns__section-title {
@@ -52,7 +54,12 @@
   display: grid;
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 576px) {
+  .fiveColumns {
+    width: var(--sm-width, --defaultWidth);
+    padding: 0 var(--sm-paddingX, --defaultPadding-X);
+  }
+
   .fiveColumns__grid {
     grid-template-areas: "left left left left"
                          "mleft mleft mleft mleft"
@@ -63,6 +70,11 @@
 }
 
 @media screen and (min-width: 768px) {
+  .fiveColumns {
+    width: var(--md-width, --sm-width);
+    padding: 0 var(--md-paddingX, --sm-padding-X);
+  }
+
   .fiveColumns__grid {
     grid-template-areas:  "left left left left mleft mleft mleft mleft"
                           "middle middle middle middle middle middle middle middle"
@@ -70,8 +82,27 @@
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 992px) {
+  .fiveColumns {
+    width: var(--lg-width, --md-width);
+    padding: 0 var(--lg-paddingX, --md-padding-X);
+  }
+
   .fiveColumns__grid {
     grid-template-areas: "left mleft middle mright right";
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .fiveColumns {
+    width: var(--xl-width, --lg-width);
+    padding: 0 var(--xl-paddingX, --lg-padding-X);
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .fiveColumns {
+    width: var(--xxl-width, --xl-width);
+    padding: 0 var(--xxl-paddingX, --xl-padding-X);
   }
 }

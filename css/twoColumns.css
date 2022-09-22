@@ -2,10 +2,12 @@
 .twoColumns {
   --defaultBgColor: transparent;
   --defaultLabelColor: var(--bs-primary);
+  --defaultWidth: var(--width, 100%);
+  --defaultPaddingX: var(--paddingX, 0);
   background-color: var(--backgroundColor, var(--defaultBgColor));
-  width: var(--width, 100%);
+  width: var(--defaultWidth, 100%);
   margin: 0 auto;
-  padding: 0 var(--paddingX, 0);
+  padding: 0 var(--defaultPaddingX, 0);
 }
 
 .twoColumns__grid-50-50,
@@ -38,7 +40,19 @@
   display: grid;
 }
 
+@media screen and (min-width: 576px) {
+  .twoColumns {
+    width: var(--sm-width, --defaultWidth);
+    padding: 0 var(--sm-paddingX, --defaultPadding-X);
+  }
+}
+
 @media screen and (min-width: 768px) {
+  .twoColumns {
+    width: var(--md-width, --sm-width);
+    padding: 0 var(--md-paddingX, --sm-padding-X);
+  }
+
   .twoColumns__grid-50-50 {
     grid-template-areas: "left left left left left right right right right right";
   }
@@ -73,5 +87,26 @@
 
   .twoColumns__grid-60-40 {
     grid-template-areas: "left left left left left left right right right right";
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .twoColumns {
+    width: var(--lg-width, --md-width);
+    padding: 0 var(--lg-paddingX, --md-padding-X);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .twoColumns {
+    width: var(--xl-width, --lg-width);
+    padding: 0 var(--xl-paddingX, --lg-padding-X);
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .twoColumns {
+    width: var(--xxl-width, --xl-width);
+    padding: 0 var(--xxl-paddingX, --xl-padding-X);
   }
 }

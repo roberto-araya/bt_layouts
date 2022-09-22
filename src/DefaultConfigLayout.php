@@ -11,23 +11,150 @@ final class DefaultConfigLayout {
   public const GRID_CONTAINER_SELECT = 'full';
   public const GRID_FULL_SELECT = '0';
   public const GRID_BOX_SELECT = '100%';
-  public const GRID_PADDING_TOP_NONE = 'pt-none';
-  public const GRID_PADDING_TOP_HALF = 'pt-half';
-  public const GRID_PADDING_TOP_NORMAL = 'pt-normal';
-  public const GRID_PADDING_TOP_DOUBLE = 'pt-double';
-  public const GRID_PADDING_TOP_TRIPLE = 'pt-triple';
 
-  public const GRID_GAP_NONE = 'gap-none';
-  public const GRID_GAP_HALF = 'gap-half';
-  public const GRID_GAP_NORMAL = 'gap-normal';
-  public const GRID_GAP_DOUBLE = 'gap-double';
-  public const GRID_GAP_TRIPLE = 'gap-triple';
+  public const GRID_PADDING_TOP_NONE = 'none';
+  public const GRID_PADDING_TOP_ZERO = 'pt-0';
+  public const GRID_PADDING_TOP_SMALL = 'pt-1';
+  public const GRID_PADDING_TOP_HALF = 'pt-2';
+  public const GRID_PADDING_TOP_NORMAL = 'pt-3';
+  public const GRID_PADDING_TOP_DOUBLE = 'pt-4';
+  public const GRID_PADDING_TOP_TRIPLE = 'pt-5';
 
-  public const GRID_PADDING_BOTTOM_NONE = 'pb-none';
-  public const GRID_PADDING_BOTTOM_HALF = 'pb-half';
-  public const GRID_PADDING_BOTTOM_NORMAL = 'pb-normal';
-  public const GRID_PADDING_BOTTOM_DOUBLE = 'pb-double';
-  public const GRID_PADDING_BOTTOM_TRIPLE = 'pb-triple';
+  public const GRID_SM_PADDING_TOP_NONE = 'none';
+  public const GRID_SM_PADDING_TOP_ZERO = 'pt-sm-0';
+  public const GRID_SM_PADDING_TOP_SMALL = 'pt-sm-1';
+  public const GRID_SM_PADDING_TOP_HALF = 'pt-sm-2';
+  public const GRID_SM_PADDING_TOP_NORMAL = 'pt-sm-3';
+  public const GRID_SM_PADDING_TOP_DOUBLE = 'pt-sm-4';
+  public const GRID_SM_PADDING_TOP_TRIPLE = 'pt-sm-5';
+
+  public const GRID_MD_PADDING_TOP_NONE = 'none';
+  public const GRID_MD_PADDING_TOP_ZERO = 'pt-md-0';
+  public const GRID_MD_PADDING_TOP_SMALL = 'pt-md-1';
+  public const GRID_MD_PADDING_TOP_HALF = 'pt-md-2';
+  public const GRID_MD_PADDING_TOP_NORMAL = 'pt-md-3';
+  public const GRID_MD_PADDING_TOP_DOUBLE = 'pt-md-4';
+  public const GRID_MD_PADDING_TOP_TRIPLE = 'pt-md-5';
+
+  public const GRID_LG_PADDING_TOP_NONE = 'none';
+  public const GRID_LG_PADDING_TOP_ZERO = 'pt-lg-0';
+  public const GRID_LG_PADDING_TOP_SMALL = 'pt-lg-1';
+  public const GRID_LG_PADDING_TOP_HALF = 'pt-lg-2';
+  public const GRID_LG_PADDING_TOP_NORMAL = 'pt-lg-3';
+  public const GRID_LG_PADDING_TOP_DOUBLE = 'pt-lg-4';
+  public const GRID_LG_PADDING_TOP_TRIPLE = 'pt-lg-5';
+
+  public const GRID_XL_PADDING_TOP_NONE = 'none';
+  public const GRID_XL_PADDING_TOP_ZERO = 'pt-xl-0';
+  public const GRID_XL_PADDING_TOP_SMALL = 'pt-xl-1';
+  public const GRID_XL_PADDING_TOP_HALF = 'pt-xl-2';
+  public const GRID_XL_PADDING_TOP_NORMAL = 'pt-xl-3';
+  public const GRID_XL_PADDING_TOP_DOUBLE = 'pt-xl-4';
+  public const GRID_XL_PADDING_TOP_TRIPLE = 'pt-xl-5';
+
+  public const GRID_XXL_PADDING_TOP_NONE = 'none';
+  public const GRID_XXL_PADDING_TOP_ZERO = 'pt-xxl-0';
+  public const GRID_XXL_PADDING_TOP_SMALL = 'pt-xxl-1';
+  public const GRID_XXL_PADDING_TOP_HALF = 'pt-xxl-2';
+  public const GRID_XXL_PADDING_TOP_NORMAL = 'pt-xxl-3';
+  public const GRID_XXL_PADDING_TOP_DOUBLE = 'pt-xxl-4';
+  public const GRID_XXL_PADDING_TOP_TRIPLE = 'pt-xxl-5';
+
+  public const GRID_PADDING_BOTTOM_NONE = 'none';
+  public const GRID_PADDING_BOTTOM_ZERO = 'pb-0';
+  public const GRID_PADDING_BOTTOM_SMALL = 'pb-1';
+  public const GRID_PADDING_BOTTOM_HALF = 'pb-2';
+  public const GRID_PADDING_BOTTOM_NORMAL = 'pb-3';
+  public const GRID_PADDING_BOTTOM_DOUBLE = 'pb-4';
+  public const GRID_PADDING_BOTTOM_TRIPLE = 'pb-5';
+
+  public const GRID_SM_PADDING_BOTTOM_NONE = 'none';
+  public const GRID_SM_PADDING_BOTTOM_ZERO = 'pb-sm-0';
+  public const GRID_SM_PADDING_BOTTOM_SMALL = 'pb-sm-1';
+  public const GRID_SM_PADDING_BOTTOM_HALF = 'pb-sm-2';
+  public const GRID_SM_PADDING_BOTTOM_NORMAL = 'pb-sm-3';
+  public const GRID_SM_PADDING_BOTTOM_DOUBLE = 'pb-sm-4';
+  public const GRID_SM_PADDING_BOTTOM_TRIPLE = 'pb-sm-5';
+
+  public const GRID_MD_PADDING_BOTTOM_NONE = 'none';
+  public const GRID_MD_PADDING_BOTTOM_ZERO = 'pb-md-0';
+  public const GRID_MD_PADDING_BOTTOM_SMALL = 'pb-md-1';
+  public const GRID_MD_PADDING_BOTTOM_HALF = 'pb-md-2';
+  public const GRID_MD_PADDING_BOTTOM_NORMAL = 'pb-md-3';
+  public const GRID_MD_PADDING_BOTTOM_DOUBLE = 'pb-md-4';
+  public const GRID_MD_PADDING_BOTTOM_TRIPLE = 'pb-md-5';
+
+  public const GRID_LG_PADDING_BOTTOM_NONE = 'none';
+  public const GRID_LG_PADDING_BOTTOM_ZERO = 'pb-lg-0';
+  public const GRID_LG_PADDING_BOTTOM_SMALL = 'pb-lg-1';
+  public const GRID_LG_PADDING_BOTTOM_HALF = 'pb-lg-2';
+  public const GRID_LG_PADDING_BOTTOM_NORMAL = 'pb-lg-3';
+  public const GRID_LG_PADDING_BOTTOM_DOUBLE = 'pb-lg-4';
+  public const GRID_LG_PADDING_BOTTOM_TRIPLE = 'pb-lg-5';
+
+  public const GRID_XL_PADDING_BOTTOM_NONE = 'none';
+  public const GRID_XL_PADDING_BOTTOM_ZERO = 'pb-xl-0';
+  public const GRID_XL_PADDING_BOTTOM_SMALL = 'pb-xl-1';
+  public const GRID_XL_PADDING_BOTTOM_HALF = 'pb-xl-2';
+  public const GRID_XL_PADDING_BOTTOM_NORMAL = 'pb-xl-3';
+  public const GRID_XL_PADDING_BOTTOM_DOUBLE = 'pb-xl-4';
+  public const GRID_XL_PADDING_BOTTOM_TRIPLE = 'pb-xl-5';
+
+  public const GRID_XXL_PADDING_BOTTOM_NONE = 'none';
+  public const GRID_XXL_PADDING_BOTTOM_ZERO = 'pb-xxl-0';
+  public const GRID_XXL_PADDING_BOTTOM_SMALL = 'pb-xxl-1';
+  public const GRID_XXL_PADDING_BOTTOM_HALF = 'pb-xxl-2';
+  public const GRID_XXL_PADDING_BOTTOM_NORMAL = 'pb-xxl-3';
+  public const GRID_XXL_PADDING_BOTTOM_DOUBLE = 'pb-xxl-4';
+  public const GRID_XXL_PADDING_BOTTOM_TRIPLE = 'pb-xxl-5';
+
+  public const GRID_GAP_NONE = 'none';
+  public const GRID_GAP_ZERO = 'gap-0';
+  public const GRID_GAP_SMALL = 'gap-1';
+  public const GRID_GAP_HALF = 'gap-2';
+  public const GRID_GAP_NORMAL = 'gap-3';
+  public const GRID_GAP_DOUBLE = 'gap-4';
+  public const GRID_GAP_TRIPLE = 'gap-5';
+
+  public const GRID_SM_GAP_NONE = 'none';
+  public const GRID_SM_GAP_ZERO = 'gap-sm-0';
+  public const GRID_SM_GAP_SMALL = 'gap-sm-1';
+  public const GRID_SM_GAP_HALF = 'gap-sm-2';
+  public const GRID_SM_GAP_NORMAL = 'gap-sm-3';
+  public const GRID_SM_GAP_DOUBLE = 'gap-sm-4';
+  public const GRID_SM_GAP_TRIPLE = 'gap-sm-5';
+
+  public const GRID_MD_GAP_NONE = 'none';
+  public const GRID_MD_GAP_ZERO = 'gap-md-0';
+  public const GRID_MD_GAP_SMALL = 'gap-md-1';
+  public const GRID_MD_GAP_HALF = 'gap-md-2';
+  public const GRID_MD_GAP_NORMAL = 'gap-md-3';
+  public const GRID_MD_GAP_DOUBLE = 'gap-md-4';
+  public const GRID_MD_GAP_TRIPLE = 'gap-md-5';
+
+  public const GRID_LG_GAP_NONE = 'none';
+  public const GRID_LG_GAP_ZERO = 'gap-lg-0';
+  public const GRID_LG_GAP_SMALL = 'gap-lg-1';
+  public const GRID_LG_GAP_HALF = 'gap-lg-2';
+  public const GRID_LG_GAP_NORMAL = 'gap-lg-3';
+  public const GRID_LG_GAP_DOUBLE = 'gap-lg-4';
+  public const GRID_LG_GAP_TRIPLE = 'gap-lg-5';
+
+  public const GRID_XL_GAP_NONE = 'none';
+  public const GRID_XL_GAP_ZERO = 'gap-xl-0';
+  public const GRID_XL_GAP_SMALL = 'gap-xl-1';
+  public const GRID_XL_GAP_HALF = 'gap-xl-2';
+  public const GRID_XL_GAP_NORMAL = 'gap-xl-3';
+  public const GRID_XL_GAP_DOUBLE = 'gap-xl-4';
+  public const GRID_XL_GAP_TRIPLE = 'gap-xl-5';
+
+  public const GRID_XXL_GAP_NONE = 'none';
+  public const GRID_XXL_GAP_ZERO = 'gap-xxl-0';
+  public const GRID_XXL_GAP_SMALL = 'gap-xxl-1';
+  public const GRID_XXL_GAP_HALF = 'gap-xxl-2';
+  public const GRID_XXL_GAP_NORMAL = 'gap-xxl-3';
+  public const GRID_XXL_GAP_DOUBLE = 'gap-xxl-4';
+  public const GRID_XXL_GAP_TRIPLE = 'gap-xxl-5';
 
   public const GRID_BACKGROUND_COLOR_DEFAULT = 'default';
   public const GRID_BACKGROUND_COLOR_PRIMARY = 'bs-primary';
@@ -91,5 +218,4 @@ final class DefaultConfigLayout {
   public const GRID_BACKGROUND_COLOR_GRAY_800 = 'bs-gray-800';
   public const GRID_BACKGROUND_COLOR_GRAY_900 = 'bs-gray-900';
   public const GRID_BACKGROUND_COLOR_CUSTOM = 'customColor';
-
 }

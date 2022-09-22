@@ -2,10 +2,12 @@
 .threeColumns {
   --defaultBgColor: transparent;
   --defaultLabelColor: var(--bs-primary);
+  --defaultWidth: var(--width, 100%);
+  --defaultPaddingX: var(--paddingX, 0);
   background-color: var(--backgroundColor, var(--defaultBgColor));
-  width: var(--width, 100%);
+  width: var(--defaultWidth, 100%);
   margin: 0 auto;
-  padding: 0 var(--paddingX, 0);
+  padding: 0 var(--defaultPaddingX, 0);
 }
 
 .threeColumns__grid-33-33-33,
@@ -55,7 +57,19 @@
   display: grid;
 }
 
+@media screen and (min-width: 576px) {
+  .threeColumns {
+    width: var(--sm-width, --defaultWidth);
+    padding: 0 var(--sm-paddingX, --defaultPadding-X);
+  }
+}
+
 @media screen and (min-width: 768px) {
+  .threeColumns {
+    width: var(--md-width, --sm-width);
+    padding: 0 var(--md-paddingX, --sm-padding-X);
+  }
+
   .threeColumns__grid-33-33-33,
   .threeColumns__grid-30-30-40,
   .threeColumns__grid-30-40-30,
@@ -77,7 +91,12 @@
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 992px) {
+  .threeColumns {
+    width: var(--lg-width, --md-width);
+    padding: 0 var(--lg-paddingX, --md-padding-X);
+  }
+
   .threeColumns__grid-33-33-33 {
     grid-template-areas: "left left left middle middle middle right right right";
   }
@@ -140,5 +159,19 @@
 
   .threeColumns__grid-25-50-25 {
     grid-template-areas: "left left middle middle middle middle right right";
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .threeColumns {
+    width: var(--xl-width, --lg-width);
+    padding: 0 var(--xl-paddingX, --lg-padding-X);
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .threeColumns {
+    width: var(--xxl-width, --xl-width);
+    padding: 0 var(--xxl-paddingX, --xl-padding-X);
   }
 }

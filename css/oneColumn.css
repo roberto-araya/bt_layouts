@@ -1,14 +1,15 @@
 .oneColumn {
   --defaultLabelColor: var(--bs-primary);
   --defaultBgColor: transparent;
+  --defaultWidth: var(--width, 100%);
+  --defaultPaddingX: var(--paddingX, 0);
   display: grid;
   grid-template-columns: 1fr;
   justify-content: center;
   background-color: var(--backgroundColor, var(--defaultBgColor));
-  width: var(--width, 100%);
+  width: var(--defaultWidth);
   margin: 0 auto;
-  padding: 0 var(--paddingX, 0);
-
+  padding: 0 var(--defaultPaddingX);
 }
 
 .oneColumn__section-title {
@@ -18,4 +19,39 @@
 .oneColumn__main-region {
   grid-column: 1;
   display: grid;
+}
+
+@media screen and (min-width: 576px) {
+  .oneColumn {
+    width: var(--sm-width, --defaultWidth);
+    padding: 0 var(--sm-paddingX, --defaultPadding-X);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .oneColumn {
+    width: var(--md-width, --sm-width);
+    padding: 0 var(--md-paddingX, --sm-padding-X);
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .oneColumn {
+    width: var(--lg-width, --md-width);
+    padding: 0 var(--lg-paddingX, --md-padding-X);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .oneColumn {
+    width: var(--xl-width, --lg-width);
+    padding: 0 var(--xl-paddingX, --lg-padding-X);
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .oneColumn {
+    width: var(--xxl-width, --xl-width);
+    padding: 0 var(--xxl-paddingX, --xl-padding-X);
+  }
 }

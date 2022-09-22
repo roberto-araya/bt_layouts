@@ -29,7 +29,7 @@ class LayoutTwoColumns extends LayoutColumns {
       '#type' => 'select',
       '#title' => $this->t('Columns Size'),
       '#options' => $columnsOptions,
-      '#weight' => 15,
+      '#weight' => 4,
       '#default_value' => $this->configuration['columns_size'],
       '#required' => TRUE,
     ];

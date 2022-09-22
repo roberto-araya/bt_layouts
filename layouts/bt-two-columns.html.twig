@@ -1,9 +1,19 @@
 {%
   set classes = [
     'twoColumns',
-    settings.padding_top ? settings.padding_top : '',
-    settings.padding_bottom ? settings.padding_bottom : '',
-  ]
+    settings.padding_top != 'none' ? settings.padding_top : '',
+    settings.padding_bottom != 'none' ? settings.padding_bottom : '',
+    settings.sm_padding_top != 'none' ? settings.sm_padding_top : '',
+    settings.sm_padding_bottom != 'none' ? settings.sm_padding_bottom : '',
+    settings.md_padding_top != 'none' ? settings.md_padding_top : '',
+    settings.md_padding_bottom != 'none' ? settings.md_padding_bottom : '',
+    settings.lg_padding_top != 'none' ? settings.lg_padding_top : '',
+    settings.lg_padding_bottom != 'none' ? settings.lg_padding_bottom : '',
+    settings.xl_padding_top != 'none' ? settings.xl_padding_top : '',
+    settings.xl_padding_bottom != 'none' ? settings.xl_padding_bottom : '',
+    settings.xxl_padding_top != 'none' ? settings.xxl_padding_top : '',
+    settings.xxl_padding_bottom != 'none' ? settings.xxl_padding_bottom : '',
+  ]|remove_empty
 %}
 
 {%
@@ -24,18 +34,34 @@
 {%
   set grid_classes = [
     settings.columns_size ? 'twoColumns__grid-' ~ settings.columns_size : '',
-    settings.gap ? settings.gap : '',
-  ]
+    settings.gap  != 'none' ? settings.gap : '',
+    settings.sm_gap  != 'none' ? settings.sm_gap : '',
+    settings.md_gap  != 'none' ? settings.md_gap : '',
+    settings.lg_gap  != 'none' ? settings.lg_gap : '',
+    settings.xl_gap  != 'none' ? settings.xl_gap : '',
+    settings.xxl_gap  != 'none' ? settings.xxl_gap : '',
+  ]|remove_empty
 %}
 
 {%
   set style_vars = [
     settings.label_color != 'default' and settings.label_color != 'customColor' ? '--labelColor: var(--' ~ settings.label_color ~ ')',
     settings.label_color == 'customColor' ? '--labelColor: ' ~ settings.label_custom_color,
+    settings.background_color == 'default' ? '--backgroundColor: transparent',
     settings.background_color != 'default' and settings.background_color != 'customColor' ? '--backgroundColor: var(--' ~ settings.background_color ~ ')',
     settings.background_color == 'customColor' ? '--backgroundColor: ' ~ settings.background_custom_color,
     settings.container_select == 'full' ? '--paddingX: ' ~ settings.full_select : '',
     settings.container_select == 'box' ? '--width: ' ~ settings.box_select : '',
+    settings.sm_container_select == 'full' ? '--sm-paddingX: ' ~ settings.sm_full_select : '',
+    settings.sm_container_select == 'box' ? '--sm-width: ' ~ settings.sm_box_select : '',
+    settings.md_container_select == 'full' ? '--md-paddingX: ' ~ settings.md_full_select : '',
+    settings.md_container_select == 'box' ? '--md-width: ' ~ settings.md_box_select : '',
+    settings.lg_container_select == 'full' ? '--lg-paddingX: ' ~ settings.lg_full_select : '',
+    settings.lg_container_select == 'box' ? '--lg-width: ' ~ settings.lg_box_select : '',
+    settings.xl_container_select == 'full' ? '--xl-paddingX: ' ~ settings.xl_full_select : '',
+    settings.xl_container_select == 'box' ? '--xl-width: ' ~ settings.xl_box_select : '',
+    settings.xxl_container_select == 'full' ? '--xxl-paddingX: ' ~ settings.xxl_full_select : '',
+    settings.xxl_container_select == 'box' ? '--xxl-width: ' ~ settings.xxl_box_select : '',  
   ]|remove_empty
 %}
 

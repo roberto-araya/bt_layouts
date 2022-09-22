@@ -25,15 +25,24 @@ class LayoutColumn extends LayoutDefault {
    * {@inheritdoc}
    */
   public function defaultConfiguration(): array {
-    return [
+    $config = [
+      'background_color' => DefaultConfigLayout::GRID_BACKGROUND_COLOR_DEFAULT,
+      'class' => NULL,
       'container_select' => DefaultConfigLayout::GRID_CONTAINER_SELECT,
       'full_select' => DefaultConfigLayout::GRID_FULL_SELECT,
       'box_select' => DefaultConfigLayout::GRID_BOX_SELECT,
-      'background_color' => DefaultConfigLayout::GRID_BACKGROUND_COLOR_PRIMARY,
       'padding_top' => DefaultConfigLayout::GRID_PADDING_TOP_NONE,
       'padding_bottom' => DefaultConfigLayout::GRID_PADDING_BOTTOM_NONE,
-      'class' => NULL,
     ];
+
+    foreach (['sm', 'md', 'lg', 'xl', 'xxl'] as $prefix) {
+      $config[$prefix . '_container_select'] =  DefaultConfigLayout::GRID_CONTAINER_SELECT;
+      $config[$prefix . '_full_select'] = DefaultConfigLayout::GRID_FULL_SELECT;
+      $config[$prefix . '_sm_box_select'] = DefaultConfigLayout::GRID_BOX_SELECT;
+      $config[$prefix . '_sm_padding_top'] = DefaultConfigLayout::GRID_PADDING_TOP_NONE;
+      $config[$prefix . '_sm_padding_bottom'] = DefaultConfigLayout::GRID_PADDING_BOTTOM_NONE;
+    }
+    return $config;
   }
 
   /**
@@ -41,15 +50,60 @@ class LayoutColumn extends LayoutDefault {
    */
   public function buildConfigurationForm(array $form, FormStateInterface $form_state): array {
     $backgroundColorOptions = $this->getBackgroundColorOptions();
-    $paddingTopOptions = $this->getPaddingTopOptions();
-    $paddingBottomOptions = $this->getPaddingBottomOptions();
-
     $form = parent::buildConfigurationForm($form, $form_state);
 
     $form['hide_label'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Hide label'),
-      '#default_value' => $this->configuration['hide_label'],
+      '#default_value' => $this->configuration['hide_label'] ? $this->configuration['hide_label'] : TRUE,
+      '#weight' => 1,
+    ];
+
+    $form['label_color'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Label Color'),
+      '#options' => $backgroundColorOptions,
+      '#weight' => 2,
+      '#default_value' => $this->configuration['label_color'],
+      '#states' => [
+        'visible' => [
+          ':input[name="layout_settings[hide_label]"]' => ['checked' => FALSE],
+        ],
+      ],
+    ];
+
+    $form['label_custom_color'] = [
+      '#type' => 'color',
+      '#title' => $this->t('Custom color'),
+      '#description' => $this->t("Select a custom label color."),
+      '#default_value' => $this->configuration['label_custom_color'],
+      '#weight' => 3,
+      '#states' => [
+        'visible' => [
+          ':input[name="layout_settings[label_color]"]' => ['value' => 'customColor'],
+        ],
+      ],
+    ];
+
+    $form['background_color'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Background Color'),
+      '#options' => $backgroundColorOptions,
+      '#weight' => 6,
+      '#default_value' => $this->configuration['background_color'] ? $this->configuration['background_color'] : 'default',
+    ];
+
+    $form['background_custom_color'] = [
+      '#type' => 'color',
+      '#title' => $this->t('Custom color'),
+      '#description' => $this->t("Select a custom color as background."),
+      '#default_value' => $this->configuration['background_custom_color'],
+      '#weight' => 7,
+      '#states' => [
+        'visible' => [
+          ':input[name="layout_settings[background_color]"]' => ['value' => 'customColor'],
+        ],
+      ],
     ];
 
     $form['container_select'] = [
@@ -61,6 +115,7 @@ class LayoutColumn extends LayoutDefault {
       '#title' => $this->t('Container Type'),
       '#description' => $this->t("Select a container type for the width."),
       '#default_value' => $this->configuration['container_select'],
+      '#weight' => 8,
     ];
 
     $form['full_select'] = [
@@ -80,6 +135,7 @@ class LayoutColumn extends LayoutDefault {
           ':input[name="layout_settings[container_select]"]' => ['value' => 'full'],
         ],
       ],
+      '#weight' => 9,
     ];
 
     $form['box_select'] = [
@@ -99,73 +155,125 @@ class LayoutColumn extends LayoutDefault {
           ':input[name="layout_settings[container_select]"]' => ['value' => 'box'],
         ],
       ],
-    ];
-
-    $form['label_color'] = [
-      '#type' => 'select',
-      '#title' => $this->t('Label Color'),
-      '#options' => $backgroundColorOptions,
-      '#weight' => 11,
-      '#default_value' => $this->configuration['label_color'],
-    ];
-
-    $form['label_custom_color'] = [
-      '#type' => 'color',
-      '#title' => $this->t('Custom color'),
-      '#description' => $this->t("Select a custom label color."),
-      '#default_value' => $this->configuration['label_custom_color'],
-      '#weight' => 12,
-      '#states' => [
-        'visible' => [
-          ':input[name="layout_settings[label_color]"]' => ['value' => 'customColor'],
-        ],
-      ],
-    ];
-
-    $form['background_color'] = [
-      '#type' => 'select',
-      '#title' => $this->t('Background Color'),
-      '#options' => $backgroundColorOptions,
-      '#weight' => 20,
-      '#default_value' => $this->configuration['background_color'],
-    ];
-
-    $form['background_custom_color'] = [
-      '#type' => 'color',
-      '#title' => $this->t('Custom color'),
-      '#description' => $this->t("Select a custom color as background."),
-      '#default_value' => $this->configuration['background_custom_color'],
-      '#weight' => 30,
-      '#states' => [
-        'visible' => [
-          ':input[name="layout_settings[background_color]"]' => ['value' => 'customColor'],
-        ],
-      ],
+      '#weight' => 10,
     ];
 
     $form['padding_top'] = [
       '#type' => 'select',
       '#title' => $this->t('Padding Top'),
-      '#options' => $paddingTopOptions,
-      '#default_value' => $this->configuration['padding_top'],
+      '#options' => $this->getPaddingTopOptions('none'),
+      '#default_value' => $this->configuration['padding_top'] ? $this->configuration['padding_top'] : 'none',
       '#required' => TRUE,
-      '#weight' => 40,
+      '#weight' => 11,
     ];
 
     $form['padding_bottom'] = [
       '#type' => 'select',
       '#title' => $this->t('Padding Bottom'),
-      '#options' => $paddingBottomOptions,
-      '#default_value' => $this->configuration['padding_bottom'],
+      '#options' => $this->getPaddingBottomOptions('none'),
+      '#default_value' => $this->configuration['padding_bottom'] ? $this->configuration['padding_bottom'] : 'none',
       '#required' => TRUE,
-      '#weight' => 50,
+      '#weight' => 12,
     ];
+
+    $screens = [
+      'sm' => t('min-width: 576px'),
+      'md' => t('min-width: 768px'),
+      'lg' => t('min-width: 992px'),
+      'xl' => t('min-width: 1200px'),
+      'xxl' => t('min-width: 1400px'),
+    ];
+
+    $form['breakpoints'] = [
+      '#type' => 'details',
+      '#title' => t('Breakpoints'),
+      '#tree' => TRUE,
+      '#weight' => 20,
+    ];
+
+    foreach ($screens as $prefix => $breakpoint) {
+      $form['breakpoints'][$prefix] = [
+        '#type' => 'details',
+        '#title' => $breakpoint,
+        '#tree' => TRUE,
+      ];
+
+      $form['breakpoints'][$prefix][$prefix . '_container_select'] = [
+        '#type' => 'select',
+        '#options' => [
+          'full' => $this->t('Full'),
+          'box' => $this->t('Box'),
+        ],
+        '#title' => $this->t('Container Type'),
+        '#description' => $this->t("Select a container type for the width."),
+        '#default_value' => $this->configuration[$prefix . '_container_select'],
+        '#weight' => 7,
+      ];
+
+      $form['breakpoints'][$prefix][$prefix . '_full_select'] = [
+        '#type' => 'select',
+        '#options' => [
+          '0' => $this->t('100%'),
+          '5%' => $this->t('90%'),
+          '10%' => $this->t('80%'),
+          '15%' => $this->t('70%'),
+          '20%' => $this->t('60%'),
+        ],
+        '#title' => $this->t('Full Container Width'),
+        '#description' => $this->t("Select a width."),
+        '#default_value' => $this->configuration[$prefix . '_full_select'],
+        '#states' => [
+          'visible' => [
+            ':input[name="layout_settings[breakpoints][' . $prefix . '][' . $prefix . '_container_select]"]' => ['value' => 'full'],
+          ],
+        ],
+        '#weight' => 8,
+      ];
+
+      $form['breakpoints'][$prefix][$prefix . '_box_select'] = [
+        '#type' => 'select',
+        '#options' => [
+          '100%' => $this->t('100%'),
+          '90%' => $this->t('90%'),
+          '80%' => $this->t('80%'),
+          '70%' => $this->t('70%'),
+          '60%' => $this->t('60%'),
+        ],
+        '#title' => $this->t('Box Container Width'),
+        '#description' => $this->t("Select a width."),
+        '#default_value' => $this->configuration[$prefix . '_box_select'],
+        '#states' => [
+          'visible' => [
+            ':input[name="layout_settings[breakpoints][' . $prefix . '][' . $prefix . '_container_select]"]' => ['value' => 'box'],
+          ],
+        ],
+        '#weight' => 9,
+      ];
+
+      $form['breakpoints'][$prefix][$prefix . '_padding_top'] = [
+        '#type' => 'select',
+        '#title' => $this->t('Padding Top'),
+        '#options' => $this->getPaddingTopOptions($prefix),
+        '#default_value' => $this->configuration[$prefix . '_padding_top'] ? $this->configuration[$prefix . '_padding_top'] : 'none',
+        '#required' => TRUE,
+        '#weight' => 10,
+      ];
+
+      $form['breakpoints'][$prefix][$prefix . '_padding_bottom'] = [
+        '#type' => 'select',
+        '#title' => $this->t('Padding Bottom'),
+        '#options' => $this->getPaddingBottomOptions($prefix),
+        '#default_value' => $this->configuration[$prefix . '_padding_bottom'] ? $this->configuration[$prefix . '_padding_bottom'] : 'none',
+        '#required' => TRUE,
+        '#weight' => 11,
+      ];
+    }
 
     $form['extra'] = [
       '#type' => 'details',
       '#title' => $this->t('Extra'),
       '#open' => $this->hasExtraSettings(),
-      '#weight' => 60,
+      '#weight' => 12,
     ];
 
     $form['extra']['class'] = [
@@ -176,6 +284,7 @@ class LayoutColumn extends LayoutDefault {
       '#attributes' => [
         'placeholder' => 'class-one class-two',
       ],
+      '#weight' => 13,
     ];
 
     return $form;
@@ -194,16 +303,24 @@ class LayoutColumn extends LayoutDefault {
     $values = $form_state->getValues();
     $this->configuration['label'] = $values['label'];
     $this->configuration['hide_label'] = $values['hide_label'];
-    $this->configuration['container_select'] = $values['container_select'];
-    $this->configuration['full_select'] = $values['full_select'];
-    $this->configuration['box_select'] = $values['box_select'];
     $this->configuration['label_color'] = $values['label_color'];
     $this->configuration['label_custom_color'] = $values['label_custom_color'];
     $this->configuration['background_color'] = $values['background_color'];
     $this->configuration['background_custom_color'] = $values['background_custom_color'];
+    $this->configuration['class'] = $values['extra']['class']; 
+    $this->configuration['container_select'] = $values['container_select'];
+    $this->configuration['full_select'] = $values['full_select'];
+    $this->configuration['box_select'] = $values['box_select'];
     $this->configuration['padding_top'] = $values['padding_top'];
     $this->configuration['padding_bottom'] = $values['padding_bottom'];
-    $this->configuration['class'] = $values['extra']['class'];
+
+    foreach (['sm', 'md', 'lg', 'xl', 'xxl'] as $prefix) {
+      $this->configuration[$prefix . '_container_select'] = $values['breakpoints'][$prefix][$prefix . '_container_select'];
+      $this->configuration[$prefix . '_full_select'] = $values['breakpoints'][$prefix][$prefix . '_full_select'];
+      $this->configuration[$prefix . '_box_select'] = $values['breakpoints'][$prefix][$prefix . '_box_select'];
+      $this->configuration[$prefix . '_padding_top'] = $values['breakpoints'][$prefix][$prefix .  '_padding_top'];
+      $this->configuration[$prefix . '_padding_bottom'] = $values['breakpoints'][$prefix][$prefix . '_padding_bottom'];
+    }
   }
 
   /**
@@ -212,14 +329,69 @@ class LayoutColumn extends LayoutDefault {
    * @return array
    *   The top padding options.
    */
-  protected function getPaddingTopOptions(): array {
-    return [
-      DefaultConfigLayout::GRID_PADDING_TOP_NONE => $this->t('None'),
-      DefaultConfigLayout::GRID_PADDING_TOP_HALF => $this->t('Half - 0.5rem'),
-      DefaultConfigLayout::GRID_PADDING_TOP_NORMAL => $this->t('Normal - 1rem'),
-      DefaultConfigLayout::GRID_PADDING_TOP_DOUBLE => $this->t('Double - 2rem'),
-      DefaultConfigLayout::GRID_PADDING_TOP_TRIPLE => $this->t('Triple - 3rem'),
-    ];
+  protected function getPaddingTopOptions($breakpoint): array {
+    switch ($breakpoint) {
+      case 'none':
+        return [
+          DefaultConfigLayout::GRID_PADDING_TOP_NONE => $this->t('None'),
+          DefaultConfigLayout::GRID_PADDING_TOP_ZERO => $this->t('Zero'),
+          DefaultConfigLayout::GRID_PADDING_TOP_SMALL => $this->t('Small'),
+          DefaultConfigLayout::GRID_PADDING_TOP_HALF => $this->t('Half'),
+          DefaultConfigLayout::GRID_PADDING_TOP_NORMAL => $this->t('Normal'),
+          DefaultConfigLayout::GRID_PADDING_TOP_DOUBLE => $this->t('Double'),
+          DefaultConfigLayout::GRID_PADDING_TOP_TRIPLE => $this->t('Triple'),
+        ];
+      case 'sm':
+        return [
+          DefaultConfigLayout::GRID_SM_PADDING_TOP_NONE => $this->t('None'),
+          DefaultConfigLayout::GRID_SM_PADDING_TOP_ZERO => $this->t('Zero'),
+          DefaultConfigLayout::GRID_SM_PADDING_TOP_SMALL => $this->t('Small'),
+          DefaultConfigLayout::GRID_SM_PADDING_TOP_HALF => $this->t('Half'),
+          DefaultConfigLayout::GRID_SM_PADDING_TOP_NORMAL => $this->t('Normal'),
+          DefaultConfigLayout::GRID_SM_PADDING_TOP_DOUBLE => $this->t('Double'),
+          DefaultConfigLayout::GRID_SM_PADDING_TOP_TRIPLE => $this->t('Triple'),
+        ];
+      case 'md':
+        return [
+          DefaultConfigLayout::GRID_MD_PADDING_TOP_NONE => $this->t('None'),
+          DefaultConfigLayout::GRID_MD_PADDING_TOP_ZERO => $this->t('Zero'),
+          DefaultConfigLayout::GRID_MD_PADDING_TOP_SMALL => $this->t('Small'),
+          DefaultConfigLayout::GRID_MD_PADDING_TOP_HALF => $this->t('Half'),
+          DefaultConfigLayout::GRID_MD_PADDING_TOP_NORMAL => $this->t('Normal'),
+          DefaultConfigLayout::GRID_MD_PADDING_TOP_DOUBLE => $this->t('Double'),
+          DefaultConfigLayout::GRID_MD_PADDING_TOP_TRIPLE => $this->t('Triple'),
+        ];
+      case 'lg':
+        return [
+          DefaultConfigLayout::GRID_LG_PADDING_TOP_NONE => $this->t('None'),
+          DefaultConfigLayout::GRID_LG_PADDING_TOP_ZERO => $this->t('Zero'),
+          DefaultConfigLayout::GRID_LG_PADDING_TOP_SMALL => $this->t('Small'),
+          DefaultConfigLayout::GRID_LG_PADDING_TOP_HALF => $this->t('Half'),
+          DefaultConfigLayout::GRID_LG_PADDING_TOP_NORMAL => $this->t('Normal'),
+          DefaultConfigLayout::GRID_LG_PADDING_TOP_DOUBLE => $this->t('Double'),
+          DefaultConfigLayout::GRID_LG_PADDING_TOP_TRIPLE => $this->t('Triple'),
+        ];
+      case 'xl':
+        return [
+          DefaultConfigLayout::GRID_XL_PADDING_TOP_NONE => $this->t('None'),
+          DefaultConfigLayout::GRID_XL_PADDING_TOP_ZERO => $this->t('Zero'),
+          DefaultConfigLayout::GRID_XL_PADDING_TOP_SMALL => $this->t('Small'),
+          DefaultConfigLayout::GRID_XL_PADDING_TOP_HALF => $this->t('Half'),
+          DefaultConfigLayout::GRID_XL_PADDING_TOP_NORMAL => $this->t('Normal'),
+          DefaultConfigLayout::GRID_XL_PADDING_TOP_DOUBLE => $this->t('Double'),
+          DefaultConfigLayout::GRID_XL_PADDING_TOP_TRIPLE => $this->t('Triple'),
+        ];  
+      case 'xxl':
+        return [
+          DefaultConfigLayout::GRID_XXL_PADDING_TOP_NONE => $this->t('None'),
+          DefaultConfigLayout::GRID_XXL_PADDING_TOP_ZERO => $this->t('Zero'),
+          DefaultConfigLayout::GRID_XXL_PADDING_TOP_SMALL => $this->t('Small'),
+          DefaultConfigLayout::GRID_XXL_PADDING_TOP_HALF => $this->t('Half'),
+          DefaultConfigLayout::GRID_XXL_PADDING_TOP_NORMAL => $this->t('Normal'),
+          DefaultConfigLayout::GRID_XXL_PADDING_TOP_DOUBLE => $this->t('Double'),
+          DefaultConfigLayout::GRID_XXL_PADDING_TOP_TRIPLE => $this->t('Triple'),
+        ];  
+      }
   }
 
   /**
@@ -228,14 +400,69 @@ class LayoutColumn extends LayoutDefault {
    * @return array
    *   The bottom padding options.
    */
-  protected function getPaddingBottomOptions(): array {
-    return [
-      DefaultConfigLayout::GRID_PADDING_BOTTOM_NONE => $this->t('None'),
-      DefaultConfigLayout::GRID_PADDING_BOTTOM_HALF => $this->t('Half - 0.5rem'),
-      DefaultConfigLayout::GRID_PADDING_BOTTOM_NORMAL => $this->t('Normal - 1rem'),
-      DefaultConfigLayout::GRID_PADDING_BOTTOM_DOUBLE => $this->t('Double - 2rem'),
-      DefaultConfigLayout::GRID_PADDING_BOTTOM_TRIPLE => $this->t('Triple - 3rem'),
-    ];
+  protected function getPaddingBottomOptions($breakpoint): array {
+    switch ($breakpoint) {
+      case 'none':
+        return [
+          DefaultConfigLayout::GRID_PADDING_BOTTOM_NONE => $this->t('None'),
+          DefaultConfigLayout::GRID_PADDING_BOTTOM_ZERO => $this->t('Zero'),
+          DefaultConfigLayout::GRID_PADDING_BOTTOM_SMALL => $this->t('Small'),
+          DefaultConfigLayout::GRID_PADDING_BOTTOM_HALF => $this->t('Half'),
+          DefaultConfigLayout::GRID_PADDING_BOTTOM_NORMAL => $this->t('Normal'),
+          DefaultConfigLayout::GRID_PADDING_BOTTOM_DOUBLE => $this->t('Double'),
+          DefaultConfigLayout::GRID_PADDING_BOTTOM_TRIPLE => $this->t('Triple'),
+        ];
+      case 'sm':
+        return [
+          DefaultConfigLayout::GRID_SM_PADDING_BOTTOM_NONE => $this->t('None'),
+          DefaultConfigLayout::GRID_SM_PADDING_BOTTOM_ZERO => $this->t('Zero'),
+          DefaultConfigLayout::GRID_SM_PADDING_BOTTOM_SMALL => $this->t('Small'),
+          DefaultConfigLayout::GRID_SM_PADDING_BOTTOM_HALF => $this->t('Half'),
+          DefaultConfigLayout::GRID_SM_PADDING_BOTTOM_NORMAL => $this->t('Normal'),
+          DefaultConfigLayout::GRID_SM_PADDING_BOTTOM_DOUBLE => $this->t('Double'),
+          DefaultConfigLayout::GRID_SM_PADDING_BOTTOM_TRIPLE => $this->t('Triple'),
+        ];
+      case 'md':
+        return [
+          DefaultConfigLayout::GRID_MD_PADDING_BOTTOM_NONE => $this->t('None'),
+          DefaultConfigLayout::GRID_MD_PADDING_BOTTOM_ZERO => $this->t('Zero'),
+          DefaultConfigLayout::GRID_MD_PADDING_BOTTOM_SMALL => $this->t('Small'),
+          DefaultConfigLayout::GRID_MD_PADDING_BOTTOM_HALF => $this->t('Half'),
+          DefaultConfigLayout::GRID_MD_PADDING_BOTTOM_NORMAL => $this->t('Normal'),
+          DefaultConfigLayout::GRID_MD_PADDING_BOTTOM_DOUBLE => $this->t('Double'),
+          DefaultConfigLayout::GRID_MD_PADDING_BOTTOM_TRIPLE => $this->t('Triple'),
+        ];
+      case 'lg':
+        return [
+          DefaultConfigLayout::GRID_LG_PADDING_BOTTOM_NONE => $this->t('None'),
+          DefaultConfigLayout::GRID_LG_PADDING_BOTTOM_ZERO => $this->t('Zero'),
+          DefaultConfigLayout::GRID_LG_PADDING_BOTTOM_SMALL => $this->t('Small'),
+          DefaultConfigLayout::GRID_LG_PADDING_BOTTOM_HALF => $this->t('Half'),
+          DefaultConfigLayout::GRID_LG_PADDING_BOTTOM_NORMAL => $this->t('Normal'),
+          DefaultConfigLayout::GRID_LG_PADDING_BOTTOM_DOUBLE => $this->t('Double'),
+          DefaultConfigLayout::GRID_LG_PADDING_BOTTOM_TRIPLE => $this->t('Triple'),
+        ];
+      case 'xl':
+        return [
+          DefaultConfigLayout::GRID_XL_PADDING_BOTTOM_NONE => $this->t('None'),
+          DefaultConfigLayout::GRID_XL_PADDING_BOTTOM_ZERO => $this->t('Zero'),
+          DefaultConfigLayout::GRID_XL_PADDING_BOTTOM_SMALL => $this->t('Small'),
+          DefaultConfigLayout::GRID_XL_PADDING_BOTTOM_HALF => $this->t('Half'),
+          DefaultConfigLayout::GRID_XL_PADDING_BOTTOM_NORMAL => $this->t('Normal'),
+          DefaultConfigLayout::GRID_XL_PADDING_BOTTOM_DOUBLE => $this->t('Double'),
+          DefaultConfigLayout::GRID_XL_PADDING_BOTTOM_TRIPLE => $this->t('Triple'),
+        ];  
+      case 'xxl':
+        return [
+          DefaultConfigLayout::GRID_XXL_PADDING_BOTTOM_NONE => $this->t('None'),
+          DefaultConfigLayout::GRID_XXL_PADDING_BOTTOM_ZERO => $this->t('Zero'),
+          DefaultConfigLayout::GRID_XXL_PADDING_BOTTOM_SMALL => $this->t('Small'),
+          DefaultConfigLayout::GRID_XXL_PADDING_BOTTOM_HALF => $this->t('Half'),
+          DefaultConfigLayout::GRID_XXL_PADDING_BOTTOM_NORMAL => $this->t('Normal'),
+          DefaultConfigLayout::GRID_XXL_PADDING_BOTTOM_DOUBLE => $this->t('Double'),
+          DefaultConfigLayout::GRID_XXL_PADDING_BOTTOM_TRIPLE => $this->t('Triple'),
+        ];  
+      }
   }
 
   /**
@@ -333,7 +560,7 @@ class LayoutColumn extends LayoutDefault {
    *   If this layout has extra settings.
    */
   protected function hasExtraSettings(): bool {
-    return $this->configuration['class'] || $this->configuration['hero'];
+    return $this->configuration['class'] || FALSE;
   }
 
 }
