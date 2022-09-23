@@ -22,7 +22,7 @@ class LayoutColumns extends LayoutColumn {
     foreach (['sm', 'md', 'lg', 'xl', 'xxl'] as $prefix) {
       $config[$prefix . '_gap'] = DefaultConfigLayout::GRID_GAP_NONE;
     }
-  
+
     return $config;
   }
 
@@ -66,21 +66,6 @@ class LayoutColumns extends LayoutColumn {
   public function submitConfigurationForm(array &$form, FormStateInterface $form_state) {
     parent::submitConfigurationForm($form, $form_state);
     $values = $form_state->getValues();
-    
-    /*$this->configuration['label'] = $values['label'];
-    $this->configuration['hide_label'] = $values['hide_label'];
-    $this->configuration['container_select'] = $values['container_select'];
-    $this->configuration['full_select'] = $values['full_select'];
-    $this->configuration['box_select'] = $values['box_select'];
-    $this->configuration['label_color'] = $values['label_color'];
-    $this->configuration['label_custom_color'] = $values['label_custom_color'];
-    $this->configuration['background_color'] = $values['background_color'];
-    $this->configuration['background_custom_color'] = $values['background_custom_color'];
-    $this->configuration['gap'] = $values['gap'];
-    $this->configuration['padding_top'] = $values['padding_top'];
-    $this->configuration['padding_bottom'] = $values['padding_bottom'];
-    $this->configuration['class'] = $values['extra']['class'];*/
-
     $this->configuration['gap'] = $values['gap'];
 
     foreach (['sm', 'md', 'lg', 'xl', 'xxl'] as $prefix) {
@@ -105,6 +90,7 @@ class LayoutColumns extends LayoutColumn {
           DefaultConfigLayout::GRID_GAP_DOUBLE => $this->t('Double'),
           DefaultConfigLayout::GRID_GAP_TRIPLE => $this->t('Triple'),
         ];
+
       case 'sm':
         return [
           DefaultConfigLayout::GRID_SM_GAP_NONE => $this->t('None'),
@@ -114,6 +100,7 @@ class LayoutColumns extends LayoutColumn {
           DefaultConfigLayout::GRID_SM_GAP_DOUBLE => $this->t('Double'),
           DefaultConfigLayout::GRID_SM_GAP_TRIPLE => $this->t('Triple'),
         ];
+
       case 'md':
         return [
           DefaultConfigLayout::GRID_MD_GAP_NONE => $this->t('None'),
@@ -123,6 +110,7 @@ class LayoutColumns extends LayoutColumn {
           DefaultConfigLayout::GRID_MD_GAP_DOUBLE => $this->t('Double'),
           DefaultConfigLayout::GRID_MD_GAP_TRIPLE => $this->t('Triple'),
         ];
+
       case 'lg':
         return [
           DefaultConfigLayout::GRID_LG_GAP_NONE => $this->t('None'),
@@ -132,6 +120,7 @@ class LayoutColumns extends LayoutColumn {
           DefaultConfigLayout::GRID_LG_GAP_DOUBLE => $this->t('Double'),
           DefaultConfigLayout::GRID_LG_GAP_TRIPLE => $this->t('Triple'),
         ];
+
       case 'xl':
         return [
           DefaultConfigLayout::GRID_XL_GAP_NONE => $this->t('None'),
@@ -141,6 +130,7 @@ class LayoutColumns extends LayoutColumn {
           DefaultConfigLayout::GRID_XL_GAP_DOUBLE => $this->t('Double'),
           DefaultConfigLayout::GRID_XL_GAP_TRIPLE => $this->t('Triple'),
         ];
+
       case 'xxl':
         return [
           DefaultConfigLayout::GRID_XXL_GAP_NONE => $this->t('None'),
@@ -152,4 +142,5 @@ class LayoutColumns extends LayoutColumn {
         ];
     }
   }
+
 }

@@ -36,7 +36,7 @@ class LayoutColumn extends LayoutDefault {
     ];
 
     foreach (['sm', 'md', 'lg', 'xl', 'xxl'] as $prefix) {
-      $config[$prefix . '_container_select'] =  DefaultConfigLayout::GRID_CONTAINER_SELECT;
+      $config[$prefix . '_container_select'] = DefaultConfigLayout::GRID_CONTAINER_SELECT;
       $config[$prefix . '_full_select'] = DefaultConfigLayout::GRID_FULL_SELECT;
       $config[$prefix . '_sm_box_select'] = DefaultConfigLayout::GRID_BOX_SELECT;
       $config[$prefix . '_sm_padding_top'] = DefaultConfigLayout::GRID_PADDING_TOP_NONE;
@@ -177,16 +177,16 @@ class LayoutColumn extends LayoutDefault {
     ];
 
     $screens = [
-      'sm' => t('min-width: 576px'),
-      'md' => t('min-width: 768px'),
-      'lg' => t('min-width: 992px'),
-      'xl' => t('min-width: 1200px'),
-      'xxl' => t('min-width: 1400px'),
+      'sm' => $this->t('min-width: 576px'),
+      'md' => $this->t('min-width: 768px'),
+      'lg' => $this->t('min-width: 992px'),
+      'xl' => $this->t('min-width: 1200px'),
+      'xxl' => $this->t('min-width: 1400px'),
     ];
 
     $form['breakpoints'] = [
       '#type' => 'details',
-      '#title' => t('Breakpoints'),
+      '#title' => $this->t('Breakpoints'),
       '#tree' => TRUE,
       '#weight' => 20,
     ];
@@ -307,7 +307,7 @@ class LayoutColumn extends LayoutDefault {
     $this->configuration['label_custom_color'] = $values['label_custom_color'];
     $this->configuration['background_color'] = $values['background_color'];
     $this->configuration['background_custom_color'] = $values['background_custom_color'];
-    $this->configuration['class'] = $values['extra']['class']; 
+    $this->configuration['class'] = $values['extra']['class'];
     $this->configuration['container_select'] = $values['container_select'];
     $this->configuration['full_select'] = $values['full_select'];
     $this->configuration['box_select'] = $values['box_select'];
@@ -318,7 +318,7 @@ class LayoutColumn extends LayoutDefault {
       $this->configuration[$prefix . '_container_select'] = $values['breakpoints'][$prefix][$prefix . '_container_select'];
       $this->configuration[$prefix . '_full_select'] = $values['breakpoints'][$prefix][$prefix . '_full_select'];
       $this->configuration[$prefix . '_box_select'] = $values['breakpoints'][$prefix][$prefix . '_box_select'];
-      $this->configuration[$prefix . '_padding_top'] = $values['breakpoints'][$prefix][$prefix .  '_padding_top'];
+      $this->configuration[$prefix . '_padding_top'] = $values['breakpoints'][$prefix][$prefix . '_padding_top'];
       $this->configuration[$prefix . '_padding_bottom'] = $values['breakpoints'][$prefix][$prefix . '_padding_bottom'];
     }
   }
@@ -341,6 +341,7 @@ class LayoutColumn extends LayoutDefault {
           DefaultConfigLayout::GRID_PADDING_TOP_DOUBLE => $this->t('Double'),
           DefaultConfigLayout::GRID_PADDING_TOP_TRIPLE => $this->t('Triple'),
         ];
+
       case 'sm':
         return [
           DefaultConfigLayout::GRID_SM_PADDING_TOP_NONE => $this->t('None'),
@@ -351,6 +352,7 @@ class LayoutColumn extends LayoutDefault {
           DefaultConfigLayout::GRID_SM_PADDING_TOP_DOUBLE => $this->t('Double'),
           DefaultConfigLayout::GRID_SM_PADDING_TOP_TRIPLE => $this->t('Triple'),
         ];
+
       case 'md':
         return [
           DefaultConfigLayout::GRID_MD_PADDING_TOP_NONE => $this->t('None'),
@@ -361,6 +363,7 @@ class LayoutColumn extends LayoutDefault {
           DefaultConfigLayout::GRID_MD_PADDING_TOP_DOUBLE => $this->t('Double'),
           DefaultConfigLayout::GRID_MD_PADDING_TOP_TRIPLE => $this->t('Triple'),
         ];
+
       case 'lg':
         return [
           DefaultConfigLayout::GRID_LG_PADDING_TOP_NONE => $this->t('None'),
@@ -371,6 +374,7 @@ class LayoutColumn extends LayoutDefault {
           DefaultConfigLayout::GRID_LG_PADDING_TOP_DOUBLE => $this->t('Double'),
           DefaultConfigLayout::GRID_LG_PADDING_TOP_TRIPLE => $this->t('Triple'),
         ];
+
       case 'xl':
         return [
           DefaultConfigLayout::GRID_XL_PADDING_TOP_NONE => $this->t('None'),
@@ -380,7 +384,8 @@ class LayoutColumn extends LayoutDefault {
           DefaultConfigLayout::GRID_XL_PADDING_TOP_NORMAL => $this->t('Normal'),
           DefaultConfigLayout::GRID_XL_PADDING_TOP_DOUBLE => $this->t('Double'),
           DefaultConfigLayout::GRID_XL_PADDING_TOP_TRIPLE => $this->t('Triple'),
-        ];  
+        ];
+
       case 'xxl':
         return [
           DefaultConfigLayout::GRID_XXL_PADDING_TOP_NONE => $this->t('None'),
@@ -390,8 +395,8 @@ class LayoutColumn extends LayoutDefault {
           DefaultConfigLayout::GRID_XXL_PADDING_TOP_NORMAL => $this->t('Normal'),
           DefaultConfigLayout::GRID_XXL_PADDING_TOP_DOUBLE => $this->t('Double'),
           DefaultConfigLayout::GRID_XXL_PADDING_TOP_TRIPLE => $this->t('Triple'),
-        ];  
-      }
+        ];
+    }
   }
 
   /**
@@ -412,6 +417,7 @@ class LayoutColumn extends LayoutDefault {
           DefaultConfigLayout::GRID_PADDING_BOTTOM_DOUBLE => $this->t('Double'),
           DefaultConfigLayout::GRID_PADDING_BOTTOM_TRIPLE => $this->t('Triple'),
         ];
+
       case 'sm':
         return [
           DefaultConfigLayout::GRID_SM_PADDING_BOTTOM_NONE => $this->t('None'),
@@ -422,6 +428,7 @@ class LayoutColumn extends LayoutDefault {
           DefaultConfigLayout::GRID_SM_PADDING_BOTTOM_DOUBLE => $this->t('Double'),
           DefaultConfigLayout::GRID_SM_PADDING_BOTTOM_TRIPLE => $this->t('Triple'),
         ];
+
       case 'md':
         return [
           DefaultConfigLayout::GRID_MD_PADDING_BOTTOM_NONE => $this->t('None'),
@@ -432,6 +439,7 @@ class LayoutColumn extends LayoutDefault {
           DefaultConfigLayout::GRID_MD_PADDING_BOTTOM_DOUBLE => $this->t('Double'),
           DefaultConfigLayout::GRID_MD_PADDING_BOTTOM_TRIPLE => $this->t('Triple'),
         ];
+
       case 'lg':
         return [
           DefaultConfigLayout::GRID_LG_PADDING_BOTTOM_NONE => $this->t('None'),
@@ -442,6 +450,7 @@ class LayoutColumn extends LayoutDefault {
           DefaultConfigLayout::GRID_LG_PADDING_BOTTOM_DOUBLE => $this->t('Double'),
           DefaultConfigLayout::GRID_LG_PADDING_BOTTOM_TRIPLE => $this->t('Triple'),
         ];
+
       case 'xl':
         return [
           DefaultConfigLayout::GRID_XL_PADDING_BOTTOM_NONE => $this->t('None'),
@@ -451,7 +460,8 @@ class LayoutColumn extends LayoutDefault {
           DefaultConfigLayout::GRID_XL_PADDING_BOTTOM_NORMAL => $this->t('Normal'),
           DefaultConfigLayout::GRID_XL_PADDING_BOTTOM_DOUBLE => $this->t('Double'),
           DefaultConfigLayout::GRID_XL_PADDING_BOTTOM_TRIPLE => $this->t('Triple'),
-        ];  
+        ];
+
       case 'xxl':
         return [
           DefaultConfigLayout::GRID_XXL_PADDING_BOTTOM_NONE => $this->t('None'),
@@ -461,8 +471,8 @@ class LayoutColumn extends LayoutDefault {
           DefaultConfigLayout::GRID_XXL_PADDING_BOTTOM_NORMAL => $this->t('Normal'),
           DefaultConfigLayout::GRID_XXL_PADDING_BOTTOM_DOUBLE => $this->t('Double'),
           DefaultConfigLayout::GRID_XXL_PADDING_BOTTOM_TRIPLE => $this->t('Triple'),
-        ];  
-      }
+        ];
+    }
   }
 
   /**
