@@ -69,7 +69,7 @@ class LayoutColumns extends LayoutColumn {
     $this->configuration['gap'] = $values['gap'];
 
     foreach (['sm', 'md', 'lg', 'xl', 'xxl'] as $prefix) {
-      $this->configuration[$prefix . '_gap'] = $values['breakpoints'][$prefix][$prefix . '_gap'];
+      $this->configuration[$prefix . '_gap'] = $values['breakpoints'][$prefix]['gap'];
     }
   }
 
