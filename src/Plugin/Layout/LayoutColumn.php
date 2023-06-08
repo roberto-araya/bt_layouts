@@ -106,6 +106,14 @@ class LayoutColumn extends LayoutDefault {
       ],
     ];
 
+    $form['height'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Height'),
+      '#description' => $this->t('Enter a height. Examples: 100vh, 400px.'),
+      '#default_value' => $this->configuration['height'],
+      '#weight' => 6,
+    ];
+
     $form['container_select'] = [
       '#type' => 'select',
       '#options' => [
@@ -307,6 +315,7 @@ class LayoutColumn extends LayoutDefault {
     $this->configuration['label_custom_color'] = $values['label_custom_color'];
     $this->configuration['background_color'] = $values['background_color'];
     $this->configuration['background_custom_color'] = $values['background_custom_color'];
+    $this->configuration['height'] = $values['height'];
     $this->configuration['class'] = $values['extra']['class'];
     $this->configuration['container_select'] = $values['container_select'];
     $this->configuration['full_select'] = $values['full_select'];
