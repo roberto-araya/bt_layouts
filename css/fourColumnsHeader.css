@@ -29,32 +29,31 @@
   display: grid;
 }
 
-.fourColumns__left-region {
-  grid-area: left;
+.fourColumns__left-region,
+.fourColumns__middleLeft-region,
+.fourColumns__middleRight-region,
+.fourColumns__right-region {
   display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
   min-height: max-content;
   height: var(--defaultHeight);
+}
+
+.fourColumns__left-region {
+  grid-area: left;
 }
 
 .fourColumns__middleLeft-region {
   grid-area: mleft;
-  display: grid;
-  min-height: max-content;
-  height: var(--defaultHeight);
 }
 
 .fourColumns__middleRight-region {
   grid-area: mright;
-  display: grid;
-  min-height: max-content;
-  height: var(--defaultHeight);
 }
 
 .fourColumns__right-region {
   grid-area: right;
-  display: grid;
-  min-height: max-content;
-  height: var(--defaultHeight);
 }
 
 @media screen and (min-width: 576px) {

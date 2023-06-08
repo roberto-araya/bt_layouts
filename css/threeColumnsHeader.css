@@ -43,25 +43,27 @@
   display: grid;
 }
 
-.threeColumns__left-region {
-  grid-area: left;
+.threeColumns__left-region,
+.threeColumns__middle-region,
+.threeColumns__right-region {
   display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
   min-height: max-content;
   height: var(--defaultHeight);
+}
+
+
+.threeColumns__left-region {
+  grid-area: left;
 }
 
 .threeColumns__middle-region {
   grid-area: middle;
-  display: grid;
-  min-height: max-content;
-  height: var(--defaultHeight);
 }
 
 .threeColumns__right-region {
   grid-area: right;
-  display: grid;
-  min-height: max-content;
-  height: var(--defaultHeight);
 }
 
 @media screen and (min-width: 576px) {

@@ -20,6 +20,8 @@
 .oneColumn__main-region {
   grid-column: 1;
   display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
   min-height: max-content;
   height: var(--defaultHeight);
 }

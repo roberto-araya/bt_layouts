@@ -39,6 +39,8 @@
 .twoColumns__left-region {
   grid-area: left;
   display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
   min-height: max-content;
   height: var(--defaultHeight);
 }
@@ -46,6 +48,8 @@
 .twoColumns__right-region {
   grid-area: right;
   display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
   min-height: max-content;
   height: var(--defaultHeight);
 }

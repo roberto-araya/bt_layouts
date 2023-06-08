@@ -31,18 +31,21 @@
 }
 
 /* Columns */
-.twoColumns__left-region {
-  grid-area: left;
+.twoColumns__left-region,
+.twoColumns__right-region {
   display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
   min-height: max-content;
   height: var(--defaultHeight);
 }
 
+.twoColumns__left-region {
+  grid-area: left;
+}
+
 .twoColumns__right-region {
   grid-area: right;
-  display: grid;
-  min-height: max-content;
-  height: var(--defaultHeight);
 }
 
 @media screen and (min-width: 576px) {
