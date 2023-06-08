@@ -7,8 +7,6 @@
   --defaultHeight: var(--height, 100%);
   background-color: var(--backgroundColor, var(--defaultBgColor));
   width: var(--defaultWidth);
-  min-height: max-content;
-  height: var(--defaultHeight);
   margin: 0 auto;
   padding: 0 var(--defaultPaddingX, 0);
 }
@@ -36,11 +34,15 @@
 .twoColumns__left-region {
   grid-area: left;
   display: grid;
+  min-height: max-content;
+  height: var(--defaultHeight);
 }
 
 .twoColumns__right-region {
   grid-area: right;
   display: grid;
+  min-height: max-content;
+  height: var(--defaultHeight);
 }
 
 @media screen and (min-width: 576px) {

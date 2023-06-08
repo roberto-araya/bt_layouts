@@ -9,8 +9,6 @@
   justify-content: center;
   background-color: var(--backgroundColor, var(--defaultBgColor));
   width: var(--defaultWidth);
-  min-height: max-content;
-  height: var(--defaultHeight);
   margin: 0 auto;
   padding: 0 var(--defaultPaddingX);
 }
@@ -22,6 +20,8 @@
 .oneColumn__main-region {
   grid-column: 1;
   display: grid;
+  min-height: max-content;
+  height: var(--defaultHeight);
 }
 
 @media screen and (min-width: 576px) {
