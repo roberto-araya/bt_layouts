@@ -69,6 +69,7 @@
 @media screen and (min-width: 576px) {
   .threeColumns {
     width: var(--sm-width, --defaultWidth);
+    height: var(--sm-height, --defaultHeight);
     padding: 0 var(--sm-paddingX, --defaultPadding-X);
   }
 }
@@ -76,6 +77,7 @@
 @media screen and (min-width: 768px) {
   .threeColumns {
     width: var(--md-width, --sm-width);
+    height: var(--md-height, --defaultHeight);
     padding: 0 var(--md-paddingX, --sm-padding-X);
   }
 
@@ -103,6 +105,7 @@
 @media screen and (min-width: 992px) {
   .threeColumns {
     width: var(--lg-width, --md-width);
+    height: var(--lg-height, --defaultHeight);
     padding: 0 var(--lg-paddingX, --md-padding-X);
   }
 
@@ -174,6 +177,7 @@
 @media screen and (min-width: 1200px) {
   .threeColumns {
     width: var(--xl-width, --lg-width);
+    height: var(--xl-height, --defaultHeight);
     padding: 0 var(--xl-paddingX, --lg-padding-X);
   }
 }
@@ -181,6 +185,7 @@
 @media screen and (min-width: 1400px) {
   .threeColumns {
     width: var(--xxl-width, --xl-width);
+    height: var(--xxl-height, --defaultHeight);
     padding: 0 var(--xxl-paddingX, --xl-padding-X);
   }
 }

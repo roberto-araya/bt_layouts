@@ -38,9 +38,9 @@ class LayoutColumn extends LayoutDefault {
     foreach (['sm', 'md', 'lg', 'xl', 'xxl'] as $prefix) {
       $config[$prefix . '_container_select'] = DefaultConfigLayout::GRID_CONTAINER_SELECT;
       $config[$prefix . '_full_select'] = DefaultConfigLayout::GRID_FULL_SELECT;
-      $config[$prefix . '_sm_box_select'] = DefaultConfigLayout::GRID_BOX_SELECT;
-      $config[$prefix . '_sm_padding_top'] = DefaultConfigLayout::GRID_PADDING_TOP_NONE;
-      $config[$prefix . '_sm_padding_bottom'] = DefaultConfigLayout::GRID_PADDING_BOTTOM_NONE;
+      $config[$prefix . '_box_select'] = DefaultConfigLayout::GRID_BOX_SELECT;
+      $config[$prefix . '_padding_top'] = DefaultConfigLayout::GRID_PADDING_TOP_NONE;
+      $config[$prefix . '_padding_bottom'] = DefaultConfigLayout::GRID_PADDING_BOTTOM_NONE;
     }
     return $config;
   }
@@ -106,14 +106,6 @@ class LayoutColumn extends LayoutDefault {
       ],
     ];
 
-    $form['height'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Height'),
-      '#description' => $this->t('Enter a height. Examples: 100vh, 400px.'),
-      '#default_value' => $this->configuration['height'],
-      '#weight' => 6,
-    ];
-
     $form['container_select'] = [
       '#type' => 'select',
       '#options' => [
@@ -164,6 +156,14 @@ class LayoutColumn extends LayoutDefault {
         ],
       ],
       '#weight' => 10,
+    ];
+
+    $form['height'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Height'),
+      '#description' => $this->t('Enter a height. Examples: 100vh, 400px.'),
+      '#default_value' => $this->configuration['height'],
+      '#weight' => 11,
     ];
 
     $form['padding_top'] = [
@@ -258,6 +258,14 @@ class LayoutColumn extends LayoutDefault {
         '#weight' => 9,
       ];
 
+      $form['breakpoints'][$prefix][$prefix . '_height'] = [
+        '#type' => 'textfield',
+        '#title' => $this->t('Height'),
+        '#description' => $this->t('Enter a height. Examples: 100vh, 400px.'),
+        '#default_value' => $this->configuration[$prefix . '_height'] ? $this->configuration[$prefix . '_height'] : '',
+        '#weight' => 6,
+      ];
+
       $form['breakpoints'][$prefix][$prefix . '_padding_top'] = [
         '#type' => 'select',
         '#title' => $this->t('Padding Top'),
@@ -315,11 +323,11 @@ class LayoutColumn extends LayoutDefault {
     $this->configuration['label_custom_color'] = $values['label_custom_color'];
     $this->configuration['background_color'] = $values['background_color'];
     $this->configuration['background_custom_color'] = $values['background_custom_color'];
-    $this->configuration['height'] = $values['height'];
     $this->configuration['class'] = $values['extra']['class'];
     $this->configuration['container_select'] = $values['container_select'];
     $this->configuration['full_select'] = $values['full_select'];
     $this->configuration['box_select'] = $values['box_select'];
+    $this->configuration['height'] = $values['height'];
     $this->configuration['padding_top'] = $values['padding_top'];
     $this->configuration['padding_bottom'] = $values['padding_bottom'];
 
@@ -327,6 +335,7 @@ class LayoutColumn extends LayoutDefault {
       $this->configuration[$prefix . '_container_select'] = $values['breakpoints'][$prefix][$prefix . '_container_select'];
       $this->configuration[$prefix . '_full_select'] = $values['breakpoints'][$prefix][$prefix . '_full_select'];
       $this->configuration[$prefix . '_box_select'] = $values['breakpoints'][$prefix][$prefix . '_box_select'];
+      $this->configuration[$prefix . '_height'] = ['breakpoints'][$prefix][$prefix . '_height'];
       $this->configuration[$prefix . '_padding_top'] = $values['breakpoints'][$prefix][$prefix . '_padding_top'];
       $this->configuration[$prefix . '_padding_bottom'] = $values['breakpoints'][$prefix][$prefix . '_padding_bottom'];
     }
