@@ -32,6 +32,30 @@
 %}
 
 {%
+  set left_region = [
+    'threeColumns__left-region',
+    settings.order != 'default' ? settings.order : '',
+    settings.sm_order != 'default' ? settings.sm_order : '',
+    settings.md_order != 'default' ? settings.md_order : '',
+    settings.lg_order != 'default' ? settings.lg_order : '',
+    settings.xl_order != 'default' ? settings.xl_order : '',
+    settings.xxl_order  != 'default' ? settings.xxl_order : '',
+  ]|remove_empty
+%}
+
+{%
+  set right_region = [
+    'threeColumns__right-region',
+    settings.order != 'default' ? settings.order : '',
+    settings.sm_order != 'default' ? settings.sm_order : '',
+    settings.md_order != 'default' ? settings.md_order : '',
+    settings.lg_order != 'default' ? settings.lg_order : '',
+    settings.xl_order != 'default' ? settings.xl_order : '',
+    settings.xxl_order  != 'default' ? settings.xxl_order : '',
+  ]|remove_empty
+%}
+
+{%
   set grid_classes = [
     settings.columns_size ? 'threeColumns__grid-' ~ settings.columns_size : '',
     settings.gap  != 'none' ? settings.gap : '',
@@ -81,7 +105,7 @@
     {% endif %}
     <div {{ grid_attributes.addClass(grid_classes) }}>
       {% if content.threeColumns__left %}
-        <div {{ region_attributes.threeColumns__left.addClass('threeColumns__left-region') }}>
+        <div {{ region_attributes.threeColumns__left.addClass(left_region) }}>
           {{ content.threeColumns__left }}
         </div>
       {% endif %}
@@ -91,7 +115,7 @@
         </div>
       {% endif %}    
       {% if content.threeColumns__right %}
-        <div {{ region_attributes.threeColumns__right.addClass('threeColumns__right-region') }}>
+        <div {{ region_attributes.threeColumns__right.addClass(right_region) }}>
           {{ content.threeColumns__right }}
         </div>
       {% endif %}

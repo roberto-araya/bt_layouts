@@ -32,6 +32,54 @@
 %}
 
 {%
+  set left_region = [
+    'fiveColumns__left-region',
+    settings.order != 'default' ? settings.order : '',
+    settings.sm_order != 'default' ? settings.sm_order : '',
+    settings.md_order != 'default' ? settings.md_order : '',
+    settings.lg_order != 'default' ? settings.lg_order : '',
+    settings.xl_order != 'default' ? settings.xl_order : '',
+    settings.xxl_order  != 'default' ? settings.xxl_order : '',
+  ]|remove_empty
+%}
+
+{%
+  set right_region = [
+    'fiveColumns__right-region',
+    settings.order != 'default' ? settings.order : '',
+    settings.sm_order != 'default' ? settings.sm_order : '',
+    settings.md_order != 'default' ? settings.md_order : '',
+    settings.lg_order != 'default' ? settings.lg_order : '',
+    settings.xl_order != 'default' ? settings.xl_order : '',
+    settings.xxl_order  != 'default' ? settings.xxl_order : '',
+  ]|remove_empty
+%}
+
+{%
+  set mleft_region = [
+    'fiveColumns__middleLeft-region',
+    settings.order != 'default' ? settings.order : '',
+    settings.sm_order != 'default' ? settings.sm_order : '',
+    settings.md_order != 'default' ? settings.md_order : '',
+    settings.lg_order != 'default' ? settings.lg_order : '',
+    settings.xl_order != 'default' ? settings.xl_order : '',
+    settings.xxl_order  != 'default' ? settings.xxl_order : '',
+  ]|remove_empty
+%}
+
+{%
+  set mright_region = [
+    'fiveColumns__middleRight-region',
+    settings.order != 'default' ? settings.order : '',
+    settings.sm_order != 'default' ? settings.sm_order : '',
+    settings.md_order != 'default' ? settings.md_order : '',
+    settings.lg_order != 'default' ? settings.lg_order : '',
+    settings.xl_order != 'default' ? settings.xl_order : '',
+    settings.xxl_order  != 'default' ? settings.xxl_order : '',
+  ]|remove_empty
+%}
+
+{%
   set grid_classes = [
     'fiveColumns__grid',
     settings.gap  != 'none' ? settings.gap : '',
@@ -81,12 +129,12 @@
     {% endif %}
     <div {{ grid_attributes.addClass(grid_classes) }}>
       {% if content.fiveColumns__left %}
-        <div {{ region_attributes.fiveColumns__left.addClass('fiveColumns__left-region') }}>
+        <div {{ region_attributes.fiveColumns__left.addClass(left_region) }}>
           {{ content.fiveColumns__left }}
         </div>
       {% endif %}
       {% if content.fiveColumns__middleLeft %}
-        <div {{ region_attributes.fiveColumns__middleLeft.addClass('fiveColumns__middleLeft-region') }}>
+        <div {{ region_attributes.fiveColumns__middleLeft.addClass(mleft_region) }}>
           {{ content.fiveColumns__middleLeft }}
         </div>
       {% endif %}
@@ -96,12 +144,12 @@
         </div>
       {% endif %}
       {% if content.fiveColumns__middleRight %}
-        <div {{ region_attributes.fiveColumns__middleRight.addClass('fiveColumns__middleRight-region') }}>
+        <div {{ region_attributes.fiveColumns__middleRight.addClass(mright_region) }}>
           {{ content.fiveColumns__middleRight }}
         </div>
       {% endif %}
       {% if content.fiveColumns__right %}
-        <div {{ region_attributes.fiveColumns__right.addClass('fiveColumns__right-region') }}>
+        <div {{ region_attributes.fiveColumns__right.addClass(right_region) }}>
           {{ content.fiveColumns__right }}
         </div>
       {% endif %}    

@@ -28,18 +28,42 @@
 %}
 
 {%
+  set left_region = [
+    'twoColumns__left-region',
+    settings.order != 'default' ? settings.order : '',
+    settings.sm_order != 'default' ? settings.sm_order : '',
+    settings.md_order != 'default' ? settings.md_order : '',
+    settings.lg_order != 'default' ? settings.lg_order : '',
+    settings.xl_order != 'default' ? settings.xl_order : '',
+    settings.xxl_order  != 'default' ? settings.xxl_order : '',
+  ]|remove_empty
+%}
+
+{%
+  set right_region = [
+    'twoColumns__right-region',
+    settings.order != 'default' ? settings.order : '',
+    settings.sm_order != 'default' ? settings.sm_order : '',
+    settings.md_order != 'default' ? settings.md_order : '',
+    settings.lg_order != 'default' ? settings.lg_order : '',
+    settings.xl_order != 'default' ? settings.xl_order : '',
+    settings.xxl_order  != 'default' ? settings.xxl_order : '',
+  ]|remove_empty
+%}
+
+{%
   set grid_attributes = create_attribute()
 %}
 
 {%
   set grid_classes = [
     settings.columns_size ? 'twoColumns__grid-' ~ settings.columns_size : '',
-    settings.gap  != 'none' ? settings.gap : '',
-    settings.sm_gap  != 'none' ? settings.sm_gap : '',
-    settings.md_gap  != 'none' ? settings.md_gap : '',
-    settings.lg_gap  != 'none' ? settings.lg_gap : '',
-    settings.xl_gap  != 'none' ? settings.xl_gap : '',
-    settings.xxl_gap  != 'none' ? settings.xxl_gap : '',
+    settings.gap != 'none' ? settings.gap : '',
+    settings.sm_gap != 'none' ? settings.sm_gap : '',
+    settings.md_gap != 'none' ? settings.md_gap : '',
+    settings.lg_gap != 'none' ? settings.lg_gap : '',
+    settings.xl_gap != 'none' ? settings.xl_gap : '',
+    settings.xxl_gap != 'none' ? settings.xxl_gap : '',
   ]|remove_empty
 %}
 
@@ -76,12 +100,12 @@
     <h2 {{ title_attributes.addClass(title_classes) }}>{{ settings.label }}</h2>
     <div {{ grid_attributes.addClass(grid_classes) }}>
       {% if content.twoColumns__left %}
-        <div {{ region_attributes.twoColumns__left.addClass('twoColumns__left-region') }}>
+        <div {{ region_attributes.twoColumns__left.addClass(left_region) }}>
           {{ content.twoColumns__left }}
         </div>
       {% endif %}
       {% if content.twoColumns__right %}
-        <div {{ region_attributes.twoColumns__right.addClass('twoColumns__right-region') }}>
+        <div {{ region_attributes.twoColumns__right.addClass(right_region) }}>
           {{ content.twoColumns__right }}
         </div>
       {% endif %}

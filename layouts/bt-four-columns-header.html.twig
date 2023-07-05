@@ -32,6 +32,54 @@
 %}
 
 {%
+  set left_region = [
+    'fourColumns__left-region',
+    settings.order != 'default' ? settings.order : '',
+    settings.sm_order != 'default' ? settings.sm_order : '',
+    settings.md_order != 'default' ? settings.md_order : '',
+    settings.lg_order != 'default' ? settings.lg_order : '',
+    settings.xl_order != 'default' ? settings.xl_order : '',
+    settings.xxl_order  != 'default' ? settings.xxl_order : '',
+  ]|remove_empty
+%}
+
+{%
+  set right_region = [
+    'fourColumns__right-region',
+    settings.order != 'default' ? settings.order : '',
+    settings.sm_order != 'default' ? settings.sm_order : '',
+    settings.md_order != 'default' ? settings.md_order : '',
+    settings.lg_order != 'default' ? settings.lg_order : '',
+    settings.xl_order != 'default' ? settings.xl_order : '',
+    settings.xxl_order  != 'default' ? settings.xxl_order : '',
+  ]|remove_empty
+%}
+
+{%
+  set mleft_region = [
+    'fourColumns__middleLeft-region',
+    settings.order != 'default' ? settings.order : '',
+    settings.sm_order != 'default' ? settings.sm_order : '',
+    settings.md_order != 'default' ? settings.md_order : '',
+    settings.lg_order != 'default' ? settings.lg_order : '',
+    settings.xl_order != 'default' ? settings.xl_order : '',
+    settings.xxl_order  != 'default' ? settings.xxl_order : '',
+  ]|remove_empty
+%}
+
+{%
+  set mright_region = [
+    'fourColumns__middleRight-region',
+    settings.order != 'default' ? settings.order : '',
+    settings.sm_order != 'default' ? settings.sm_order : '',
+    settings.md_order != 'default' ? settings.md_order : '',
+    settings.lg_order != 'default' ? settings.lg_order : '',
+    settings.xl_order != 'default' ? settings.xl_order : '',
+    settings.xxl_order  != 'default' ? settings.xxl_order : '',
+  ]|remove_empty
+%}
+
+{%
   set grid_classes = [
     'fourColumns__grid',
     settings.gap  != 'none' ? settings.gap : '',
@@ -81,22 +129,22 @@
     {% endif %}
     <div {{ grid_attributes.addClass(grid_classes) }}>
       {% if content.fourColumns__left %}
-        <div {{ region_attributes.fourColumns__left.addClass('fourColumns__left-region') }}>
+        <div {{ region_attributes.fourColumns__left.addClass(left_region) }}>
           {{ content.fourColumns__left }}
         </div>
       {% endif %}
       {% if content.fourColumns__middleLeft %}
-        <div {{ region_attributes.fourColumns__middleLeft.addClass('fourColumns__middleLeft-region') }}>
+        <div {{ region_attributes.fourColumns__middleLeft.addClass(mleft_region) }}>
           {{ content.fourColumns__middleLeft }}
         </div>
       {% endif %}
       {% if content.fourColumns__middleRight %}
-        <div {{ region_attributes.fourColumns__middleRight.addClass('fourColumns__middleRight-region') }}>
+        <div {{ region_attributes.fourColumns__middleRight.addClass(mright_region) }}>
           {{ content.fourColumns__middleRight }}
         </div>
       {% endif %}
       {% if content.fourColumns__right %}
-        <div {{ region_attributes.fourColumns__right.addClass('fourColumns__right-region') }}>
+        <div {{ region_attributes.fourColumns__right.addClass(right_region) }}>
           {{ content.fourColumns__right }}
         </div>
       {% endif %}    

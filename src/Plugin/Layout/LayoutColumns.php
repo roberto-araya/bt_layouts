@@ -40,6 +40,18 @@ class LayoutColumns extends LayoutColumn {
       '#required' => TRUE,
     ];
 
+    $parent_form['order'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Order'),
+      '#options' => [
+        'default' => $this->t('Default'),
+        'revert' => $this->t('Revert'),
+      ],
+      '#weight' => 5,
+      '#default_value' => $this->configuration['order'] ? $this->configuration['order'] : 'default',
+      '#required' => TRUE,
+    ];
+
     foreach (['sm', 'md', 'lg', 'xl', 'xxl'] as $prefix) {
       $parent_form['breakpoints'][$prefix]['gap'] = [
         '#type' => 'select',
@@ -47,6 +59,18 @@ class LayoutColumns extends LayoutColumn {
         '#options' => $this->getGapOptions($prefix),
         '#weight' => 5,
         '#default_value' => $this->configuration[$prefix . '_gap'],
+        '#required' => TRUE,
+      ];
+
+      $parent_form['breakpoints'][$prefix]['order'] = [
+        '#type' => 'select',
+        '#title' => $this->t('Order'),
+        '#options' => [
+          'default' => $this->t('Default'),
+          $prefix . '-revert' => $this->t('Revert'),
+        ],
+        '#weight' => 5,
+        '#default_value' => $this->configuration[$prefix . '_order'] ? $this->configuration[$prefix . '_order'] : 'default',
         '#required' => TRUE,
       ];
     }
@@ -67,9 +91,11 @@ class LayoutColumns extends LayoutColumn {
     parent::submitConfigurationForm($form, $form_state);
     $values = $form_state->getValues();
     $this->configuration['gap'] = $values['gap'];
+    $this->configuration['order'] = $values['order'];
 
     foreach (['sm', 'md', 'lg', 'xl', 'xxl'] as $prefix) {
       $this->configuration[$prefix . '_gap'] = $values['breakpoints'][$prefix]['gap'];
+      $this->configuration[$prefix . '_order'] = $values['breakpoints'][$prefix]['order'];
     }
   }
 
