@@ -42,7 +42,7 @@ class LayoutColumns extends LayoutColumn {
 
     $parent_form['order'] = [
       '#type' => 'select',
-      '#title' => $this->t('Order'),
+      '#title' => $this->t('Column Order'),
       '#options' => [
         'default' => $this->t('Default'),
         'revert' => $this->t('Revert'),
@@ -64,7 +64,7 @@ class LayoutColumns extends LayoutColumn {
 
       $parent_form['breakpoints'][$prefix]['order'] = [
         '#type' => 'select',
-        '#title' => $this->t('Order'),
+        '#title' => $this->t('Column Order'),
         '#options' => [
           'default' => $this->t('Default'),
           $prefix . '-revert' => $this->t('Revert'),

@@ -167,7 +167,7 @@
     grid-area: right;
   }
   
-  .twoColumns__right-region.-revert {
+  .twoColumns__right-region.xxl-revert {
     grid-area: left;
   }
 }
