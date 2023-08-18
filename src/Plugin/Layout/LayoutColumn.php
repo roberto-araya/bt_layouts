@@ -335,7 +335,7 @@ class LayoutColumn extends LayoutDefault {
       $this->configuration[$prefix . '_container_select'] = $values['breakpoints'][$prefix][$prefix . '_container_select'];
       $this->configuration[$prefix . '_full_select'] = $values['breakpoints'][$prefix][$prefix . '_full_select'];
       $this->configuration[$prefix . '_box_select'] = $values['breakpoints'][$prefix][$prefix . '_box_select'];
-      $this->configuration[$prefix . '_height'] = ['breakpoints'][$prefix][$prefix . '_height'];
+      $this->configuration[$prefix . '_height'] = $values['breakpoints'][$prefix][$prefix . '_height'];
       $this->configuration[$prefix . '_padding_top'] = $values['breakpoints'][$prefix][$prefix . '_padding_top'];
       $this->configuration[$prefix . '_padding_bottom'] = $values['breakpoints'][$prefix][$prefix . '_padding_bottom'];
     }
