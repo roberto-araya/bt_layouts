@@ -17,7 +17,8 @@
     "issues": "https://www.drupal.org/project/issues/bt_layouts",
     "source": "http://git.drupal.org/project/bt_layouts.git"
   },
-  "require": { 
+  "require": {
+    "drupal/core": "~9.4.0", 
     "drupal/twig_tools": "^1.4"
    }
 }
