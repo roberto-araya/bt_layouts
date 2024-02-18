@@ -18,9 +18,9 @@
 .fourColumns__grid {
   display: grid;
   grid-template-areas: "left left left left"
-                       "mleft mleft mleft mleft"
-                       "mright mright mright mright"
-                       "right right right right";
+  "mleft mleft mleft mleft"
+  "mright mright mright mright"
+  "right right right right";
   grid-auto-columns: 1fr;
 }
 
@@ -81,23 +81,23 @@
 
   .fourColumns__grid {
     grid-template-areas: "left left left left"
-                         "mleft mleft mleft mleft"
-                         "mright mright mright mright"
-                         "right right right right";
+    "mleft mleft mleft mleft"
+    "mright mright mright mright"
+    "right right right right";
   }
 
   .fourColumns__left-region.sm-revert {
     grid-area: right;
   }
-  
+
   .fourColumns__middleLeft-region.sm-revert {
     grid-area: mright;
   }
-  
+
   .fourColumns__middleRight-region.sm-revert {
     grid-area: mleft;
   }
-  
+
   .fourColumns__right-region.sm-revert {
     grid-area: left;
   }
@@ -111,22 +111,22 @@
   }
 
   .fourColumns__grid {
-    grid-template-areas:  "left left left left mleft mleft mleft mleft"
-                          "mright mright mright mright right right right right";
+    grid-template-areas: "left left left left mleft mleft mleft mleft"
+    "mright mright mright mright right right right right";
   }
 
   .fourColumns__left-region.md-revert {
     grid-area: right;
   }
-  
+
   .fourColumns__middleLeft-region.md-revert {
     grid-area: mright;
   }
-  
+
   .fourColumns__middleRight-region.md-revert {
     grid-area: mleft;
   }
-  
+
   .fourColumns__right-region.md-revert {
     grid-area: left;
   }
@@ -146,15 +146,15 @@
   .fourColumns__left-region.lg-revert {
     grid-area: right;
   }
-  
+
   .fourColumns__middleLeft-region.lg-revert {
     grid-area: mright;
   }
-  
+
   .fourColumns__middleRight-region.lg-revert {
     grid-area: mleft;
   }
-  
+
   .fourColumns__right-region.lg-revert {
     grid-area: left;
   }
@@ -170,15 +170,15 @@
   .fourColumns__left-region.xl-revert {
     grid-area: right;
   }
-  
+
   .fourColumns__middleLeft-region.xl-revert {
     grid-area: mright;
   }
-  
+
   .fourColumns__middleRight-region.xl-revert {
     grid-area: mleft;
   }
-  
+
   .fourColumns__right-region.xl-revert {
     grid-area: left;
   }
@@ -194,15 +194,15 @@
   .fourColumns__left-region.xxl-revert {
     grid-area: right;
   }
-  
+
   .fourColumns__middleLeft-region.xxl-revert {
     grid-area: mright;
   }
-  
+
   .fourColumns__middleRight-region.xxl-revert {
     grid-area: mleft;
   }
-  
+
   .fourColumns__right-region.xxl-revert {
     grid-area: left;
   }

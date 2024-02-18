@@ -30,8 +30,8 @@
   display: grid;
   grid-auto-columns: 1fr;
   grid-template-areas: "left left left"
-                       "middle middle middle"
-                       "right right right";
+  "middle middle middle"
+  "right right right";
 }
 
 .threeColumns__section-title {
@@ -84,7 +84,7 @@
   .threeColumns__left-region.sm-revert {
     grid-area: right;
   }
-  
+
   .threeColumns__right-region.sm-revert {
     grid-area: left;
   }
@@ -113,14 +113,14 @@
   .threeColumns__grid-50-20-30,
   .threeColumns__grid-60-20-20,
   .threeColumns__grid-25-50-25 {
-    grid-template-areas:  "middle middle middle middle middle middle"
-                          "left left left right right right";
+    grid-template-areas: "middle middle middle middle middle middle"
+    "left left left right right right";
   }
 
   .threeColumns__left-region.md-revert {
     grid-area: right;
   }
-  
+
   .threeColumns__right-region.md-revert {
     grid-area: left;
   }
@@ -185,7 +185,7 @@
     grid-template-areas: "left left left left left middle middle middle right right";
   }
 
-  .threeColumns__grid-50-20-30  {
+  .threeColumns__grid-50-20-30 {
     grid-template-areas: "left left left left left middle middle right right right";
   }
 
@@ -200,7 +200,7 @@
   .threeColumns__left-region.lg-revert {
     grid-area: right;
   }
-  
+
   .threeColumns__right-region.lg-revert {
     grid-area: left;
   }
@@ -216,7 +216,7 @@
   .threeColumns__left-region.xl-revert {
     grid-area: right;
   }
-  
+
   .threeColumns__right-region.xl-revert {
     grid-area: left;
   }
@@ -232,7 +232,7 @@
   .threeColumns__left-region.xxl-revert {
     grid-area: right;
   }
-  
+
   .threeColumns__right-region.xxl-revert {
     grid-area: left;
   }

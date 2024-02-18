@@ -23,7 +23,7 @@
   display: grid;
   grid-auto-columns: 1fr;
   grid-template-areas: "left left left left left"
-                       "right right right right right";
+  "right right right right right";
 }
 
 .twoColumns__section-title {
@@ -66,7 +66,7 @@
   .twoColumns__left-region.sm-revert {
     grid-area: right;
   }
-  
+
   .twoColumns__right-region.sm-revert {
     grid-area: left;
   }
@@ -82,10 +82,10 @@
   .twoColumns__left-region.md-revert {
     grid-area: right;
   }
-  
+
   .twoColumns__right-region.md-revert {
     grid-area: left;
-  } 
+  }
 
   .twoColumns__grid-50-50 {
     grid-template-areas: "left left left left left right right right right right";
@@ -134,7 +134,7 @@
   .twoColumns__left-region.lg-revert {
     grid-area: right;
   }
-  
+
   .twoColumns__right-region.lg-revert {
     grid-area: left;
   }
@@ -150,7 +150,7 @@
   .twoColumns__left-region.xl-revert {
     grid-area: right;
   }
-  
+
   .twoColumns__right-region.xl-revert {
     grid-area: left;
   }
@@ -166,7 +166,7 @@
   .twoColumns__left-region.xxl-revert {
     grid-area: right;
   }
-  
+
   .twoColumns__right-region.xxl-revert {
     grid-area: left;
   }
