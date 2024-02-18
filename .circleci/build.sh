@@ -44,7 +44,7 @@ DRUPAL_PROJECT_SHA="${DRUPAL_PROJECT_SHA:-}"
 # Repository for "drupal-composer/drupal-project" project.
 # May be overwritten to use forked repos that may have not been accepted
 # yet (i.e., when major Drupal version is about to be released).
-DRUPAL_PROJECT_REPO="${DRUPAL_PROJECT_REPO:-https://github.com/roberto-araya/custom-recommended-project.git}"
+DRUPAL_PROJECT_REPO="${DRUPAL_PROJECT_REPO:-https://github.com/btestercl/drupal-test-project}"
 
 # Drupal profile to use when installing the site.
 DRUPAL_PROFILE="${DRUPAL_PROFILE:-standard}"
@@ -130,7 +130,7 @@ php -d memory_limit=-1 "$(command -v composer)" --working-dir="${BUILD_DIR}" req
   dealerdirect/phpcodesniffer-composer-installer \
   phpspec/prophecy-phpunit:^2 \
   mglaman/drupal-check \
-  rector/rector:0.15.13 \
+  rector/rector:0.19.0 \
   palantirnet/drupal-rector \
   drupal/coder \
   symfony/phpunit-bridge
