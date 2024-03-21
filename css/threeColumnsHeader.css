@@ -1,7 +1,7 @@
 /* Container Types*/
 .threeColumns {
   --defaultBgColor: transparent;
-  --defaultLabelColor: var(--bs-primary);
+  --defaultLabelColor: var(--bt--primary);
   --defaultWidth: var(--width, 100%);
   --defaultPaddingX: var(--paddingX, 0);
   --defaultHeight: var(--height, 100%);

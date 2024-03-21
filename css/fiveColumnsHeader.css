@@ -1,6 +1,6 @@
 /* Container Types*/
 .fiveColumns {
-  --defaultLabelColor: var(--bs-primary);
+  --defaultLabelColor: var(--bt--primary);
   --defaultBgColor: transparent;
   --defaultWidth: var(--width, 100%);
   --defaultPaddingX: var(--paddingX, 0);

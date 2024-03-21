@@ -552,7 +552,7 @@ class LayoutColumn extends LayoutDefault {
       DefaultConfigLayout::GRID_BACKGROUND_COLOR_TEAL => $this->t('Teal'),
       DefaultConfigLayout::GRID_BACKGROUND_COLOR_CYAN => $this->t('Cyan'),
       DefaultConfigLayout::GRID_BACKGROUND_COLOR_WHITE => $this->t('White'),
-      DefaultConfigLayout::GRID_BACKGROUND_COLOR_GRAY_DARK => $this->t('Gray Dark'),
+      DefaultConfigLayout::GRID_BACKGROUND_COLOR_GRAY_050 => $this->t('Gray 050'),
       DefaultConfigLayout::GRID_BACKGROUND_COLOR_GRAY_100 => $this->t('Gray 100'),
       DefaultConfigLayout::GRID_BACKGROUND_COLOR_GRAY_200 => $this->t('Gray 200'),
       DefaultConfigLayout::GRID_BACKGROUND_COLOR_GRAY_300 => $this->t('Gray 300'),
